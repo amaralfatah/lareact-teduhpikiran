@@ -1,0 +1,393 @@
+import LandingLayout from '@/layouts/landing-layout';
+import { Head, Link } from '@inertiajs/react';
+import {
+    Calendar,
+    ChevronRight,
+    Heart,
+    Menu,
+    MessageCircle,
+    Phone,
+    User,
+    Users,
+    X,
+} from 'lucide-react';
+import { useState } from 'react';
+
+// Navigation data
+const navLinks = [
+    { name: 'Beranda', href: '/' },
+    { name: 'Produk', href: '/produk' },
+    { name: 'Layanan', href: '/layanan' },
+    { name: 'Event', href: '/event' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Tentang Kami', href: '/tentang-kami' },
+];
+
+// Counseling types
+const counselingTypes = [
+    {
+        icon: User,
+        title: 'Konseling Individu',
+        subtitle: '(Karir, Studi, Masalah Klinis)',
+        description: 'Konseling untuk masalah pribadi, perkembangan karir, studi, dan isu klinis.',
+    },
+    {
+        icon: Heart,
+        title: 'Konseling Berpasangan',
+        subtitle: '(Pra nikah & Pernikahan)',
+        description: 'Konseling untuk pasangan yang sedang mempersiapkan pernikahan atau masalah rumah tangga.',
+    },
+    {
+        icon: Users,
+        title: 'Konseling Keluarga',
+        subtitle: '(Khusus Offline)',
+        description: 'Konseling untuk dinamika keluarga dan hubungan antar anggota keluarga.',
+    },
+];
+
+// Psychologists data
+const psychologists = [
+    {
+        name: 'Jainal Ilmi, M.Psi, Psikolog',
+        title: 'Psikolog Klinis',
+        image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400',
+        expertise: ['Hipnoterapi', 'Self Hypnosis', 'Mindfulness', 'Self Development', 'Komunikasi', 'Kecemasan', 'Depresi', 'Overthinking'],
+    },
+    {
+        name: 'Syafira Putri E., M.Psi, Psikolog',
+        title: 'Psikolog Klinis',
+        image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400',
+        expertise: ['Kecemasan', 'Depresi', 'Kesepian', 'Quarter Life Crisis', 'Trauma Healing', 'Self Development'],
+    },
+    {
+        name: 'Baiq Sopia, M.Psi, Psikolog',
+        title: 'Psikolog Klinis',
+        image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400',
+        expertise: ['Depresi', 'Kecemasan', 'Self Harm', 'Traumatis', 'Perkembangan Anak & Remaja', 'Parenting'],
+    },
+    {
+        name: 'Furqan Nugraha R., M.Psi, Psikolog',
+        title: 'Psikolog Klinis Remaja & Dewasa',
+        image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400',
+        expertise: ['Permasalahan Remaja', 'Konsultasi Pasangan', 'Keluarga', 'Stres', 'Kecemasan', 'Depresi'],
+    },
+    {
+        name: 'Ria Rizki U., M.Psi, Psikolog',
+        title: 'Psikolog Klinis Dewasa',
+        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
+        expertise: ['Stress', 'Cemas', 'Pengelolaan Emosi', 'Penerimaan Diri', 'Konsultasi Pasangan & Keluarga'],
+    },
+    {
+        name: 'Mutiara Sadjad, M.Psi, Psikolog',
+        title: 'Psikolog Klinis',
+        image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400',
+        expertise: ['Depresi', 'Kecemasan', 'Relationship', 'Pasangan', 'Keluarga'],
+    },
+    {
+        name: 'Suardi Ningrat, M.Psi, Psikolog',
+        title: 'Psikolog Klinis',
+        image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400',
+        expertise: ['CBT', 'Logoterapi', 'Mindfulness', 'Psikolog Kreatif'],
+    },
+    {
+        name: 'Nur Indah Agustini, M.Psi, Psikolog',
+        title: 'Psikolog Klinis',
+        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
+        expertise: ['Kecemasan', 'Depresi', 'Self Development', 'Konseling Individu'],
+    },
+];
+
+/**
+ * Navigation Component
+ */
+function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
+                <Link href="/" className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                        TP
+                    </div>
+                    <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
+                </Link>
+
+                <nav className="hidden items-center gap-8 md:flex">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className={`text-sm transition-colors hover:text-teal-600 ${link.href === '/layanan' ? 'font-medium text-teal-600' : 'text-gray-600'
+                                }`}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                </nav>
+
+                <a
+                    href="https://chat.whatsapp.com/example"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 md:inline-flex"
+                >
+                    <Users className="h-4 w-4" />
+                    Gabung Komunitas
+                </a>
+
+                <button
+                    className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 md:hidden"
+                    onClick={() => setIsOpen(!isOpen)}
+                    aria-label="Toggle menu"
+                >
+                    {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                </button>
+            </div>
+
+            {isOpen && (
+                <div className="border-t border-gray-100 bg-white px-4 py-4 md:hidden">
+                    <nav className="flex flex-col gap-2">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${link.href === '/layanan' ? 'font-medium text-teal-600' : 'text-gray-600'
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+                </div>
+            )}
+        </header>
+    );
+}
+
+/**
+ * Hero Section
+ */
+function HeroSection() {
+    return (
+        <section className="bg-teal-600 pt-20">
+            <div className="mx-auto max-w-7xl px-4 py-16 text-center md:px-6">
+                {/* Logo */}
+                <div className="mb-6 flex justify-center">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-teal-600 shadow-lg">
+                        TC
+                    </div>
+                </div>
+
+                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-teal-200">
+                    Konseling Psikologi
+                </p>
+                <h1 className="mb-4 text-2xl font-bold text-white md:text-4xl">
+                    Berbagai Layanan dari Teduh Consulting
+                </h1>
+                <p className="mx-auto max-w-xl text-teal-100">
+                    Pilih jenis konseling yang sesuai dengan kebutuhanmu
+                </p>
+            </div>
+        </section>
+    );
+}
+
+/**
+ * Counseling Types Section
+ */
+function CounselingTypesSection() {
+    return (
+        <section className="bg-white py-16">
+            <div className="mx-auto max-w-7xl px-4 md:px-6">
+                <div className="grid gap-6 md:grid-cols-3">
+                    {counselingTypes.map((type, index) => {
+                        const IconComponent = type.icon;
+                        return (
+                            <div
+                                key={index}
+                                className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
+                            >
+                                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+                                    <IconComponent className="h-7 w-7" />
+                                </div>
+                                <h3 className="mb-1 text-lg font-semibold text-gray-900">{type.title}</h3>
+                                <p className="mb-3 text-sm text-teal-600">{type.subtitle}</p>
+                                <p className="text-sm text-gray-600">{type.description}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/**
+ * Psychologist Section
+ */
+function PsychologistSection() {
+    return (
+        <section className="bg-gray-50 py-16">
+            <div className="mx-auto max-w-7xl px-4 md:px-6">
+                {/* Header */}
+                <div className="mb-10 text-center">
+                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-teal-600">
+                        Daftar Psikolog Kami
+                    </p>
+                    <h2 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
+                        Agendakan Konseling dengan Psikolog Profesional
+                    </h2>
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                        <a
+                            href="https://bit.ly/konselingonlinecapsi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700"
+                        >
+                            <Calendar className="h-4 w-4" />
+                            Reservasi Psikolog
+                        </a>
+                        <a
+                            href="https://wasap.at/m0RR9L"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 px-5 py-2.5 font-medium text-teal-600 transition-colors hover:bg-teal-600 hover:text-white"
+                        >
+                            <MessageCircle className="h-4 w-4" />
+                            Daftar Konseling
+                        </a>
+                    </div>
+                </div>
+
+                {/* Psychologist Grid */}
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {psychologists.map((psych, index) => (
+                        <PsychologistCard key={index} psychologist={psych} />
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/**
+ * Psychologist Card with hover effect
+ */
+function PsychologistCard({ psychologist }: { psychologist: typeof psychologists[0] }) {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <div
+            className="group relative h-80 overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            {/* Front Side */}
+            <div
+                className={`absolute inset-0 flex flex-col items-center p-6 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'
+                    }`}
+            >
+                <img
+                    src={psychologist.image}
+                    alt={psychologist.name}
+                    className="mb-4 h-32 w-32 rounded-full object-cover"
+                />
+                <h3 className="mb-1 text-center text-sm font-semibold text-gray-900">
+                    {psychologist.name}
+                </h3>
+                <p className="text-center text-xs text-teal-600">{psychologist.title}</p>
+            </div>
+
+            {/* Back Side (on hover) */}
+            <div
+                className={`absolute inset-0 flex flex-col justify-center bg-teal-600 p-6 text-white transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
+                    }`}
+            >
+                <h3 className="mb-3 text-center text-sm font-semibold">{psychologist.name}</h3>
+                <p className="mb-2 text-center text-xs text-teal-200">Berpengalaman di bidang:</p>
+                <div className="flex flex-wrap justify-center gap-1">
+                    {psychologist.expertise.slice(0, 6).map((skill, idx) => (
+                        <span
+                            key={idx}
+                            className="rounded-full bg-teal-500 px-2 py-0.5 text-xs text-white"
+                        >
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+/**
+ * CTA Section
+ */
+function CTASection() {
+    return (
+        <section className="bg-white py-16">
+            <div className="mx-auto max-w-7xl px-4 md:px-6">
+                <div className="rounded-xl bg-teal-600 p-8 text-center md:p-12">
+                    <h2 className="mb-4 text-xl font-bold text-white md:text-2xl">
+                        Butuh Bantuan Profesional?
+                    </h2>
+                    <p className="mx-auto mb-6 max-w-xl text-teal-100">
+                        Jangan ragu untuk menghubungi kami. Tim psikolog profesional kami siap
+                        membantu Anda menemukan solusi terbaik.
+                    </p>
+                    <a
+                        href="https://wasap.at/m0RR9L"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-teal-600 transition-colors hover:bg-gray-100"
+                    >
+                        <Phone className="h-5 w-5" />
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/**
+ * Footer Component
+ */
+function Footer() {
+    return (
+        <footer className="bg-gray-900 py-12 text-gray-300">
+            <div className="mx-auto max-w-7xl px-4 text-center md:px-6">
+                <div className="mb-4 flex items-center justify-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                        TP
+                    </div>
+                    <span className="text-lg font-semibold text-white">TeduhPikiran</span>
+                </div>
+                <p className="text-sm text-gray-400">
+                    © {new Date().getFullYear()} TeduhPikiran. Semua hak dilindungi.
+                </p>
+            </div>
+        </footer>
+    );
+}
+
+/**
+ * Layanan Page Component
+ */
+export default function Layanan() {
+    return (
+        <LandingLayout>
+            <Head title="Layanan - TeduhPikiran" />
+
+            <Navbar />
+            <HeroSection />
+            <CounselingTypesSection />
+            <PsychologistSection />
+            <CTASection />
+            <Footer />
+        </LandingLayout>
+    );
+}

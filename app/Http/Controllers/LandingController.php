@@ -22,4 +22,12 @@ class LandingController extends Controller
     {
         return Inertia::render('produk');
     }
+
+    /**
+     * Display the service page.
+     */
+    public function layanan(): Response
+    {
+        return Inertia::render('layanan');
+    }
 }
