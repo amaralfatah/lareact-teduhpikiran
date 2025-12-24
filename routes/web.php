@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Laravel\Fortify\Features;
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/produk', [LandingController::class, 'produk'])->name('produk');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {

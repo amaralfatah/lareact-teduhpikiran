@@ -14,4 +14,12 @@ class LandingController extends Controller
     {
         return Inertia::render('landing');
     }
+
+    /**
+     * Display the product page.
+     */
+    public function produk(): Response
+    {
+        return Inertia::render('produk');
+    }
 }
