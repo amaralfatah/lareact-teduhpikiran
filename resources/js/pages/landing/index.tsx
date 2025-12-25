@@ -1,3 +1,4 @@
+import { Footer, Navbar } from '@/components/landing';
 import LandingLayout from '@/layouts/landing-layout';
 import { Head, Link } from '@inertiajs/react';
 import {
@@ -5,29 +6,11 @@ import {
     Brain,
     Check,
     Download,
-    Facebook,
-    Instagram,
-    Mail,
-    Menu,
     MessageCircle,
     Mic,
-    Phone,
     Smartphone,
-    Twitter,
-    Users,
-    X,
 } from 'lucide-react';
-import { useState } from 'react';
 
-// Navigation data
-const navLinks = [
-    { name: 'Beranda', href: '/' },
-    { name: 'Produk', href: '/produk' },
-    { name: 'Layanan', href: '/layanan' },
-    { name: 'Event', href: '/event' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Tentang Kami', href: '/tentang-kami' },
-];
 
 // Stats data
 const stats = [
@@ -110,86 +93,6 @@ const blogPosts = [
 ];
 
 /**
- * Navigation Component
- */
-function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-                {/* Logo */}
-                <Link href="/" className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
-                        TP
-                    </div>
-                    <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
-                </Link>
-
-                {/* Desktop Navigation */}
-                <nav className="hidden items-center gap-8 md:flex">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="text-sm text-gray-600 transition-colors hover:text-teal-600"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </nav>
-
-                {/* CTA Button */}
-                <a
-                    href="https://chat.whatsapp.com/example"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 md:inline-flex"
-                >
-                    <Users className="h-4 w-4" />
-                    Gabung Komunitas
-                </a>
-
-                {/* Mobile Menu Button */}
-                <button
-                    className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 md:hidden"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle menu"
-                >
-                    {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="border-t border-gray-100 bg-white px-4 py-4 md:hidden">
-                    <nav className="flex flex-col gap-2">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="rounded-lg px-3 py-2.5 text-gray-600 transition-colors hover:bg-gray-50"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                        <a
-                            href="https://chat.whatsapp.com/example"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white"
-                        >
-                            <Users className="h-4 w-4" />
-                            Gabung Komunitas
-                        </a>
-                    </nav>
-                </div>
-            )}
-        </header>
-    );
-}
-
-/**
  * Hero Section Component
  */
 function HeroSection() {
@@ -219,7 +122,7 @@ function HeroSection() {
                             Gabung Komunitas
                         </a>
                         <Link
-                            href="/tentang-kami"
+                            href="/about"
                             className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors hover:bg-gray-50"
                         >
                             Pelajari Lebih Lanjut
@@ -239,7 +142,7 @@ function HeroSection() {
                     />
                 </div>
             </div>
-        </section>
+        </section >
     );
 }
 
@@ -443,7 +346,7 @@ function CombinedCTASection() {
                             Atasi rasa minder dan insecure dengan membaca e-book ini.
                         </p>
                         <a
-                            href="/produk"
+                            href="/products"
                             className="inline-flex items-center gap-2 rounded-lg border-2 border-white px-5 py-2.5 font-medium text-white transition-colors hover:bg-white hover:text-red-600"
                         >
                             <Download className="h-4 w-4" />
@@ -503,106 +406,6 @@ function BlogSection() {
                 </div>
             </div>
         </section>
-    );
-}
-
-/**
- * Footer Component
- */
-function Footer() {
-    return (
-        <footer className="bg-gray-900 py-12 text-gray-300">
-            <div className="mx-auto max-w-7xl px-4 md:px-6">
-                <div className="grid gap-10 md:grid-cols-4">
-                    {/* Brand */}
-                    <div className="md:col-span-2">
-                        <div className="mb-4 flex items-center gap-3">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
-                                TP
-                            </div>
-                            <span className="text-lg font-semibold text-white">TeduhPikiran</span>
-                        </div>
-                        <p className="mb-6 text-sm text-gray-400">
-                            Digital Platform untuk belajar kesehatan mental, psikologi aplikatif,
-                            dan pengembangan diri.
-                        </p>
-
-                        <h4 className="mb-3 text-sm font-medium text-white">Customer Service</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li className="flex items-center gap-2">
-                                <Phone className="h-4 w-4 text-teal-500" />
-                                <a href="tel:+628123456789" className="hover:text-teal-400">
-                                    0812-3456-789
-                                </a>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <Mail className="h-4 w-4 text-teal-500" />
-                                <a href="mailto:info@teduhpikiran.com" className="hover:text-teal-400">
-                                    info@teduhpikiran.com
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="mb-4 text-sm font-medium text-white">Layanan</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li>
-                                <Link href="/layanan" className="hover:text-teal-400">
-                                    Livekuy
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/layanan" className="hover:text-teal-400">
-                                    Free Webinar
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/layanan" className="hover:text-teal-400">
-                                    Online Course
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/layanan" className="hover:text-teal-400">
-                                    Talkshow
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Social */}
-                    <div>
-                        <h4 className="mb-4 text-sm font-medium text-white">Ikuti Kami</h4>
-                        <div className="flex gap-3">
-                            <a
-                                href="#"
-                                className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-800 text-gray-400 transition-colors hover:bg-teal-600 hover:text-white"
-                            >
-                                <Facebook className="h-4 w-4" />
-                            </a>
-                            <a
-                                href="#"
-                                className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-800 text-gray-400 transition-colors hover:bg-teal-600 hover:text-white"
-                            >
-                                <Instagram className="h-4 w-4" />
-                            </a>
-                            <a
-                                href="#"
-                                className="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-800 text-gray-400 transition-colors hover:bg-teal-600 hover:text-white"
-                            >
-                                <Twitter className="h-4 w-4" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Bottom */}
-                <div className="mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
-                    <p>© {new Date().getFullYear()} TeduhPikiran. Semua hak dilindungi.</p>
-                </div>
-            </div>
-        </footer>
     );
 }
 
