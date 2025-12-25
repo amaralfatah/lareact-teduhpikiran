@@ -17,6 +17,18 @@
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
 
+    /* Brand Colors - TeduhPikiran */
+    --color-brand: var(--brand);
+    --color-brand-light: var(--brand-light);
+    --color-brand-dark: var(--brand-dark);
+    --color-brand-50: var(--brand-50);
+    --color-brand-100: var(--brand-100);
+    --color-brand-foreground: var(--brand-foreground);
+
+    /* Accent Colors */
+    --color-accent-sky: var(--accent-sky);
+    --color-accent-sky-light: var(--accent-sky-light);
+
     --color-background: var(--background);
     --color-foreground: var(--foreground);
 
@@ -62,6 +74,26 @@
 }
 
 :root {
+    /* Brand Colors - TeduhPikiran (#098EC8 blue palette) */
+    --brand: oklch(0.58 0.14 230);
+    /* #098EC8 */
+    --brand-light: oklch(0.85 0.08 230);
+    /* lighter variant */
+    --brand-dark: oklch(0.48 0.14 230);
+    /* darker variant */
+    --brand-50: oklch(0.96 0.03 230);
+    /* very light */
+    --brand-100: oklch(0.90 0.06 230);
+    /* light */
+    --brand-foreground: oklch(0.985 0 0);
+    /* white */
+
+    /* Accent Colors */
+    --accent-sky: oklch(0.68 0.16 230);
+    /* sky-500 */
+    --accent-sky-light: oklch(0.90 0.06 230);
+    /* sky-100 */
+
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);

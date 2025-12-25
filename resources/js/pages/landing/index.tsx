@@ -103,7 +103,7 @@ function HeroSection() {
                 <div className="flex-1 text-center md:text-left">
                     <h1 className="mb-6 text-3xl font-bold leading-tight text-gray-900 md:text-4xl lg:text-5xl">
                         Edukasi Kesehatan Mental & Psikologi{' '}
-                        <span className="text-teal-600">Gratis</span>
+                        <span className="text-brand">Gratis</span>
                     </h1>
 
                     <p className="mb-8 text-base text-gray-600 md:text-lg">
@@ -116,7 +116,7 @@ function HeroSection() {
                             href="https://chat.whatsapp.com/example"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-6 py-3 font-medium text-white transition-colors hover:bg-teal-700"
+                            className="inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 font-medium text-white transition-colors hover:bg-brand-dark"
                         >
                             <MessageCircle className="h-5 w-5" />
                             Gabung Komunitas
@@ -165,7 +165,7 @@ function PartnersSection() {
                             key={index}
                             className="rounded-xl bg-white p-5 text-center shadow-sm"
                         >
-                            <div className="mb-1 text-2xl font-bold text-teal-600">{stat.value}</div>
+                            <div className="mb-1 text-2xl font-bold text-brand">{stat.value}</div>
                             <div className="text-xs text-gray-600">{stat.label}</div>
                         </div>
                     ))}
@@ -196,7 +196,7 @@ function AboutSection() {
             <div className="mx-auto max-w-7xl px-4 md:px-6">
                 <div className="grid items-center gap-10 lg:grid-cols-2">
                     <div>
-                        <p className="mb-2 text-sm font-medium uppercase tracking-wide text-teal-600">
+                        <p className="mb-2 text-sm font-medium uppercase tracking-wide text-brand">
                             Tentang Kami
                         </p>
                         <h2 className="mb-5 text-2xl font-bold text-gray-900 md:text-3xl">
@@ -246,7 +246,7 @@ function ServicesSection() {
                                 key={index}
                                 className="rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
                             >
-                                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+                                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand">
                                     <IconComponent className="h-6 w-6" />
                                 </div>
                                 <h3 className="mb-2 text-lg font-semibold text-gray-900">{service.title}</h3>
@@ -254,7 +254,7 @@ function ServicesSection() {
                                 <ul className="space-y-2">
                                     {service.items.map((item, idx) => (
                                         <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                                            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-600" />
+                                            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
                                             {item}
                                         </li>
                                     ))}
@@ -275,18 +275,18 @@ function SelfLoveTestCTA() {
     return (
         <section className="bg-white py-12">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
-                <div className="overflow-hidden rounded-xl bg-sky-500">
+                <div className="overflow-hidden rounded-xl bg-brand">
                     <div className="flex flex-col items-center gap-6 p-8 md:flex-row md:p-10">
                         <div className="flex-1">
                             <h2 className="mb-4 text-xl font-semibold text-white md:text-2xl">
                                 Seberapa besar rasa cinta kamu terhadap diri sendiri?
                             </h2>
-                            <p className="mb-6 text-sky-100">
+                            <p className="mb-6 text-brand-100">
                                 Ketahui jawabannya dengan mengikuti tes self love kami.
                             </p>
                             <a
                                 href="/test-self-love"
-                                className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-white px-5 py-2.5 font-medium text-sky-600 transition-colors hover:bg-sky-50"
+                                className="inline-flex items-center gap-2 rounded-lg border-2 border-white bg-white px-5 py-2.5 font-medium text-brand transition-colors hover:bg-brand-50"
                             >
                                 Tes Psikologi Sekarang
                                 <ArrowRight className="h-4 w-4" />
@@ -327,7 +327,7 @@ function CombinedCTASection() {
                             href="https://chat.whatsapp.com/example"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 px-5 py-2.5 font-medium text-teal-600 transition-colors hover:bg-teal-600 hover:text-white"
+                            className="inline-flex items-center gap-2 rounded-lg border-2 border-brand px-5 py-2.5 font-medium text-brand transition-colors hover:bg-brand hover:text-white"
                         >
                             <MessageCircle className="h-4 w-4" />
                             Gabung Grup WhatsApp
@@ -373,7 +373,7 @@ function BlogSection() {
                     </div>
                     <Link
                         href="/blog"
-                        className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 px-5 py-2.5 font-medium text-teal-600 transition-colors hover:bg-teal-600 hover:text-white"
+                        className="inline-flex items-center gap-2 rounded-lg border-2 border-brand px-5 py-2.5 font-medium text-brand transition-colors hover:bg-brand hover:text-white"
                     >
                         Lihat Semua
                         <ArrowRight className="h-4 w-4" />

@@ -30,7 +30,7 @@ const topicLevels = [
     {
         level: 1,
         name: 'Topik Kongkow',
-        color: 'bg-teal-500',
+        color: 'bg-brand',
         topics: [
             'Who am I? Mengenali Potensi Diri dengan Ilmu Psikologi',
             'Self Love: Seni Mencintai Diri Sendiri',
@@ -45,7 +45,7 @@ const topicLevels = [
     {
         level: 2,
         name: 'Topik Santuy',
-        color: 'bg-teal-600',
+        color: 'bg-brand',
         topics: [
             'Dealing with Self Harm',
             'How to change Self Doubt to be Self Confidence',
@@ -61,7 +61,7 @@ const topicLevels = [
     {
         level: 3,
         name: 'Topik Agak Mikir',
-        color: 'bg-teal-700',
+        color: 'bg-brand-dark',
         topics: [
             'Psychology Ethics dalam Memberikan Layanan Konseling',
             'Toxic Relationship, Toxic Workplace and Toxic Family',
@@ -142,7 +142,7 @@ function Navbar() {
         <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
                 <Link href="/" className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
                         TP
                     </div>
                     <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
@@ -153,7 +153,7 @@ function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`text-sm transition-colors hover:text-teal-600 ${link.href === '/events' ? 'font-medium text-teal-600' : 'text-gray-600'
+                            className={`text-sm transition-colors hover:text-brand ${link.href === '/events' ? 'font-medium text-brand' : 'text-gray-600'
                                 }`}
                         >
                             {link.name}
@@ -165,7 +165,7 @@ function Navbar() {
                     href="https://chat.whatsapp.com/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 md:inline-flex"
+                    className="hidden items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark md:inline-flex"
                 >
                     <Users className="h-4 w-4" />
                     Join Community
@@ -187,7 +187,7 @@ function Navbar() {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${link.href === '/events' ? 'font-medium text-teal-600' : 'text-gray-600'
+                                className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${link.href === '/events' ? 'font-medium text-brand' : 'text-gray-600'
                                     }`}
                             >
                                 {link.name}
@@ -205,22 +205,22 @@ function Navbar() {
  */
 function HeroSection() {
     return (
-        <section className="bg-teal-600 pt-20">
+        <section className="bg-brand pt-20">
             <div className="mx-auto max-w-7xl px-4 py-16 text-center md:px-6">
                 {/* Logo */}
                 <div className="mb-6 flex justify-center">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-teal-600 shadow-lg">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-brand shadow-lg">
                         TS
                     </div>
                 </div>
 
-                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-teal-200">
+                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-brand-light">
                     Jasa Pembicara Ahli
                 </p>
                 <h1 className="mb-4 text-2xl font-bold text-white md:text-4xl">
                     Kami Menyediakan Speaker / Narasumber / Trainer Ahli
                 </h1>
-                <p className="mx-auto max-w-2xl text-teal-100">
+                <p className="mx-auto max-w-2xl text-brand-100">
                     3 level jenis topik trending yang bisa kamu pilih. Topik ini dapat menyesuaikan
                     sesuai permintaan, disampaikan dengan menyenangkan, ilmiah, dan mudah dipahami.
                 </p>
@@ -253,7 +253,7 @@ function TopicLevelsSection() {
                             <ul className="space-y-2">
                                 {level.topics.map((topic, idx) => (
                                     <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal-500" />
+                                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-brand" />
                                         {topic}
                                     </li>
                                 ))}
@@ -285,7 +285,7 @@ function InHouseTrainingSection() {
 
                     {/* Content */}
                     <div className="order-1 md:order-2">
-                        <p className="mb-2 text-sm font-medium uppercase tracking-wider text-teal-600">
+                        <p className="mb-2 text-sm font-medium uppercase tracking-wider text-brand">
                             In House Training for Corporate
                         </p>
                         <h2 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
@@ -300,7 +300,7 @@ function InHouseTrainingSection() {
                         <ul className="mb-6 grid gap-2 md:grid-cols-2">
                             {corporateTrainings.map((training, idx) => (
                                 <li key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                                    <Briefcase className="h-4 w-4 flex-shrink-0 text-teal-500" />
+                                    <Briefcase className="h-4 w-4 flex-shrink-0 text-brand" />
                                     {training}
                                 </li>
                             ))}
@@ -310,7 +310,7 @@ function InHouseTrainingSection() {
                             href="https://wasap.at/m0RR9L"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700"
+                            className="inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-2.5 font-medium text-white transition-colors hover:bg-brand-dark"
                         >
                             <MessageCircle className="h-4 w-4" />
                             Konsultasi Gratis
@@ -330,7 +330,7 @@ function CertificationsSection() {
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
                 <div className="mb-10 text-center">
-                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-teal-600">
+                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-brand">
                         Sertifikasi Training
                     </p>
                     <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -346,7 +346,7 @@ function CertificationsSection() {
                                 key={idx}
                                 className="rounded-xl bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
                             >
-                                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+                                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 text-brand">
                                     <IconComponent className="h-7 w-7" />
                                 </div>
                                 <h3 className="text-sm font-semibold text-gray-900">{cert.title}</h3>
@@ -367,7 +367,7 @@ function PastEventsSection() {
         <section className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
                 <div className="mb-10 text-center">
-                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-teal-600">
+                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-brand">
                         Event Kami
                     </p>
                     <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
@@ -412,11 +412,11 @@ function CTASection() {
     return (
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
-                <div className="rounded-xl bg-teal-600 p-8 text-center md:p-12">
+                <div className="rounded-xl bg-brand p-8 text-center md:p-12">
                     <h2 className="mb-4 text-xl font-bold text-white md:text-2xl">
                         Butuh Speaker untuk Acara Anda?
                     </h2>
-                    <p className="mx-auto mb-6 max-w-xl text-teal-100">
+                    <p className="mx-auto mb-6 max-w-xl text-brand-100">
                         Hubungi kami untuk mendiskusikan kebutuhan event Anda. Kami siap menyediakan
                         narasumber yang tepat untuk acara Anda.
                     </p>
@@ -424,7 +424,7 @@ function CTASection() {
                         href="https://wasap.at/m0RR9L"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-teal-600 transition-colors hover:bg-gray-100"
+                        className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-brand transition-colors hover:bg-gray-100"
                     >
                         <MessageCircle className="h-5 w-5" />
                         Hubungi Kami
@@ -443,7 +443,7 @@ function Footer() {
         <footer className="bg-gray-900 py-12 text-gray-300">
             <div className="mx-auto max-w-7xl px-4 text-center md:px-6">
                 <div className="mb-4 flex items-center justify-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
                         TP
                     </div>
                     <span className="text-lg font-semibold text-white">TeduhPikiran</span>

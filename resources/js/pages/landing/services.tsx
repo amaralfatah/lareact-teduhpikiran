@@ -90,22 +90,22 @@ const psychologists = [
  */
 function HeroSection() {
     return (
-        <section className="bg-teal-600 pt-20">
+        <section className="bg-brand pt-20">
             <div className="mx-auto max-w-7xl px-4 py-16 text-center md:px-6">
                 {/* Logo */}
                 <div className="mb-6 flex justify-center">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-teal-600 shadow-lg">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-brand shadow-lg">
                         TC
                     </div>
                 </div>
 
-                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-teal-200">
+                <p className="mb-3 text-sm font-medium uppercase tracking-wider text-brand-light">
                     Konseling Psikologi
                 </p>
                 <h1 className="mb-4 text-2xl font-bold text-white md:text-4xl">
                     Berbagai Layanan dari Teduh Consulting
                 </h1>
-                <p className="mx-auto max-w-xl text-teal-100">
+                <p className="mx-auto max-w-xl text-brand-100">
                     Pilih jenis konseling yang sesuai dengan kebutuhanmu
                 </p>
             </div>
@@ -128,11 +128,11 @@ function CounselingTypesSection() {
                                 key={index}
                                 className="rounded-xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md"
                             >
-                                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+                                <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 text-brand">
                                     <IconComponent className="h-7 w-7" />
                                 </div>
                                 <h3 className="mb-1 text-lg font-semibold text-gray-900">{type.title}</h3>
-                                <p className="mb-3 text-sm text-teal-600">{type.subtitle}</p>
+                                <p className="mb-3 text-sm text-brand">{type.subtitle}</p>
                                 <p className="text-sm text-gray-600">{type.description}</p>
                             </div>
                         );
@@ -152,7 +152,7 @@ function PsychologistSection() {
             <div className="mx-auto max-w-7xl px-4 md:px-6">
                 {/* Header */}
                 <div className="mb-10 text-center">
-                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-teal-600">
+                    <p className="mb-2 text-sm font-medium uppercase tracking-wider text-brand">
                         Daftar Psikolog Kami
                     </p>
                     <h2 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
@@ -165,7 +165,7 @@ function PsychologistSection() {
                             href="https://bit.ly/konselingonlinecapsi"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700"
+                            className="inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-2.5 font-medium text-white transition-colors hover:bg-brand-dark"
                         >
                             <Calendar className="h-4 w-4" />
                             Reservasi Psikolog
@@ -174,7 +174,7 @@ function PsychologistSection() {
                             href="https://wasap.at/m0RR9L"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg border-2 border-teal-600 px-5 py-2.5 font-medium text-teal-600 transition-colors hover:bg-teal-600 hover:text-white"
+                            className="inline-flex items-center gap-2 rounded-lg border-2 border-brand px-5 py-2.5 font-medium text-brand transition-colors hover:bg-brand hover:text-white"
                         >
                             <MessageCircle className="h-4 w-4" />
                             Daftar Konseling
@@ -218,21 +218,21 @@ function PsychologistCard({ psychologist }: { psychologist: typeof psychologists
                 <h3 className="mb-1 text-center text-sm font-semibold text-gray-900">
                     {psychologist.name}
                 </h3>
-                <p className="text-center text-xs text-teal-600">{psychologist.title}</p>
+                <p className="text-center text-xs text-brand">{psychologist.title}</p>
             </div>
 
             {/* Back Side (on hover) */}
             <div
-                className={`absolute inset-0 flex flex-col justify-center bg-teal-600 p-6 text-white transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
+                className={`absolute inset-0 flex flex-col justify-center bg-brand p-6 text-white transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
                     }`}
             >
                 <h3 className="mb-3 text-center text-sm font-semibold">{psychologist.name}</h3>
-                <p className="mb-2 text-center text-xs text-teal-200">Berpengalaman di bidang:</p>
+                <p className="mb-2 text-center text-xs text-brand-light">Berpengalaman di bidang:</p>
                 <div className="flex flex-wrap justify-center gap-1">
                     {psychologist.expertise.slice(0, 6).map((skill, idx) => (
                         <span
                             key={idx}
-                            className="rounded-full bg-teal-500 px-2 py-0.5 text-xs text-white"
+                            className="rounded-full bg-brand px-2 py-0.5 text-xs text-white"
                         >
                             {skill}
                         </span>
@@ -250,11 +250,11 @@ function CTASection() {
     return (
         <section className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
-                <div className="rounded-xl bg-teal-600 p-8 text-center md:p-12">
+                <div className="rounded-xl bg-brand p-8 text-center md:p-12">
                     <h2 className="mb-4 text-xl font-bold text-white md:text-2xl">
                         Butuh Bantuan Profesional?
                     </h2>
-                    <p className="mx-auto mb-6 max-w-xl text-teal-100">
+                    <p className="mx-auto mb-6 max-w-xl text-brand-100">
                         Jangan ragu untuk menghubungi kami. Tim psikolog profesional kami siap
                         membantu Anda menemukan solusi terbaik.
                     </p>
@@ -262,7 +262,7 @@ function CTASection() {
                         href="https://wasap.at/m0RR9L"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-teal-600 transition-colors hover:bg-gray-100"
+                        className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-medium text-brand transition-colors hover:bg-gray-100"
                     >
                         <Phone className="h-5 w-5" />
                         Hubungi Kami

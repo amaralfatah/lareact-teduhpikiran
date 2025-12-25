@@ -140,7 +140,7 @@ function HeroSection() {
             <div className="mx-auto max-w-7xl px-4 py-12 md:px-6">
                 {/* Breadcrumb */}
                 <nav className="mb-6 flex items-center gap-2 text-sm text-gray-500">
-                    <Link href="/" className="hover:text-teal-600">
+                    <Link href="/" className="hover:text-brand">
                         Home
                     </Link>
                     <ChevronRight className="h-4 w-4" />
@@ -157,7 +157,7 @@ function HeroSection() {
                             lebih sehat mental dan berkembang jauh lebih hebat lagi.
                         </p>
                     </div>
-                    <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-teal-600 text-2xl font-bold text-white">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-brand text-2xl font-bold text-white">
                         TP
                     </div>
                 </div>
@@ -182,7 +182,7 @@ function CategoryNav({ activeCategory, setActiveCategory }: {
                             key={category.id}
                             onClick={() => setActiveCategory(category.id)}
                             className={`whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-colors ${activeCategory === category.id
-                                ? 'bg-teal-600 text-white'
+                                ? 'bg-brand text-white'
                                 : 'text-gray-600 hover:bg-gray-100'
                                 }`}
                         >
@@ -247,7 +247,7 @@ function ProductCard({
                 <ul className="mb-4 space-y-2">
                     {product.description.map((desc, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                            <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-teal-500" />
+                            <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" />
                             {desc}
                         </li>
                     ))}
@@ -272,7 +272,7 @@ function ProductCard({
                         href={product.downloadUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700"
+                        className="inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-2.5 font-medium text-white transition-colors hover:bg-brand-dark"
                     >
                         <Download className="h-4 w-4" />
                         {isPremium || isCourse ? 'Pesan Sekarang' : 'Download Gratis'}

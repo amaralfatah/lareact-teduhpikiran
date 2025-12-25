@@ -33,7 +33,7 @@ export default function Navbar({ activePath }: NavbarProps) {
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
                         TP
                     </div>
                     <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
@@ -45,8 +45,8 @@ export default function Navbar({ activePath }: NavbarProps) {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`text-sm transition-colors hover:text-teal-600 ${activePath === link.href
-                                ? 'font-medium text-teal-600'
+                            className={`text-sm transition-colors hover:text-brand ${activePath === link.href
+                                ? 'font-medium text-brand'
                                 : 'text-gray-600'
                                 }`}
                         >
@@ -60,7 +60,7 @@ export default function Navbar({ activePath }: NavbarProps) {
                     href="https://chat.whatsapp.com/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 md:inline-flex"
+                    className="hidden items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark md:inline-flex"
                 >
                     <Users className="h-4 w-4" />
                     Join Community
@@ -85,7 +85,7 @@ export default function Navbar({ activePath }: NavbarProps) {
                                 key={link.name}
                                 href={link.href}
                                 className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${activePath === link.href
-                                    ? 'font-medium text-teal-600'
+                                    ? 'font-medium text-brand'
                                     : 'text-gray-600'
                                     }`}
                             >
@@ -96,7 +96,7 @@ export default function Navbar({ activePath }: NavbarProps) {
                             href="https://chat.whatsapp.com/example"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white"
+                            className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white"
                         >
                             <Users className="h-4 w-4" />
                             Join Community

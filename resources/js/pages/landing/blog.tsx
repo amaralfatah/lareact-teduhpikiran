@@ -116,7 +116,7 @@ function Navbar() {
         <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
                 <Link href="/" className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
                         TP
                     </div>
                     <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
@@ -127,7 +127,7 @@ function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className={`text-sm transition-colors hover:text-teal-600 ${link.href === '/blog' ? 'font-medium text-teal-600' : 'text-gray-600'
+                            className={`text-sm transition-colors hover:text-brand ${link.href === '/blog' ? 'font-medium text-brand' : 'text-gray-600'
                                 }`}
                         >
                             {link.name}
@@ -139,7 +139,7 @@ function Navbar() {
                     href="https://chat.whatsapp.com/example"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-teal-700 md:inline-flex"
+                    className="hidden items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark md:inline-flex"
                 >
                     <Users className="h-4 w-4" />
                     Join Community
@@ -161,7 +161,7 @@ function Navbar() {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${link.href === '/blog' ? 'font-medium text-teal-600' : 'text-gray-600'
+                                className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${link.href === '/blog' ? 'font-medium text-brand' : 'text-gray-600'
                                     }`}
                             >
                                 {link.name}
@@ -179,24 +179,24 @@ function Navbar() {
  */
 function HeroSection() {
     return (
-        <section className="bg-teal-600 pt-20">
+        <section className="bg-brand pt-20">
             <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
                 <div className="grid items-center gap-8 md:grid-cols-2">
                     {/* Content */}
                     <div className="text-white">
-                        <span className="mb-3 inline-block rounded-full bg-teal-500 px-3 py-1 text-sm font-medium">
+                        <span className="mb-3 inline-block rounded-full bg-brand px-3 py-1 text-sm font-medium">
                             {featuredArticle.category}
                         </span>
                         <h1 className="mb-4 text-2xl font-bold md:text-4xl">
                             {featuredArticle.title}
                         </h1>
-                        <p className="mb-4 text-teal-100">{featuredArticle.excerpt}</p>
-                        <p className="mb-6 text-sm text-teal-200">{featuredArticle.ctaText}</p>
+                        <p className="mb-4 text-brand-100">{featuredArticle.excerpt}</p>
+                        <p className="mb-6 text-sm text-brand-light">{featuredArticle.ctaText}</p>
                         <a
                             href={featuredArticle.ctaLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 font-medium text-teal-600 transition-colors hover:bg-gray-100"
+                            className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 font-medium text-brand transition-colors hover:bg-gray-100"
                         >
                             <Download className="h-4 w-4" />
                             Download Sekarang
@@ -235,19 +235,19 @@ function SearchCategoriesSection() {
                             placeholder="Cari artikel..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full rounded-lg border border-gray-200 py-2.5 pl-10 pr-4 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                            className="w-full rounded-lg border border-gray-200 py-2.5 pl-10 pr-4 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
                         />
                     </div>
 
                     {/* Categories Pills */}
                     <div className="flex flex-wrap gap-2">
-                        <button className="rounded-full bg-teal-600 px-4 py-1.5 text-sm font-medium text-white">
+                        <button className="rounded-full bg-brand px-4 py-1.5 text-sm font-medium text-white">
                             Semua
                         </button>
                         {categories.map((cat) => (
                             <button
                                 key={cat.slug}
-                                className="rounded-full border border-gray-200 px-4 py-1.5 text-sm text-gray-600 transition-colors hover:border-teal-500 hover:text-teal-600"
+                                className="rounded-full border border-gray-200 px-4 py-1.5 text-sm text-gray-600 transition-colors hover:border-brand hover:text-brand"
                             >
                                 {cat.name}
                             </button>
@@ -270,7 +270,7 @@ function ArticlesSection() {
                     <h2 className="text-xl font-bold text-gray-900 md:text-2xl">Artikel Terbaru</h2>
                     <a
                         href="#"
-                        className="flex items-center gap-1 text-sm font-medium text-teal-600 hover:text-teal-700"
+                        className="flex items-center gap-1 text-sm font-medium text-brand hover:text-brand-dark"
                     >
                         Lihat Semua
                         <ArrowRight className="h-4 w-4" />
@@ -290,7 +290,7 @@ function ArticlesSection() {
                             <button
                                 key={page}
                                 className={`flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-colors ${page === 1
-                                    ? 'bg-teal-600 text-white'
+                                    ? 'bg-brand text-white'
                                     : 'bg-white text-gray-600 hover:bg-gray-100'
                                     }`}
                             >
@@ -321,14 +321,14 @@ function ArticleCard({ article }: { article: typeof articles[0] }) {
                     alt={article.title}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-teal-600 px-3 py-1 text-xs font-medium text-white">
+                <span className="absolute left-3 top-3 rounded-full bg-brand px-3 py-1 text-xs font-medium text-white">
                     {article.category}
                 </span>
             </div>
 
             {/* Content */}
             <div className="p-5">
-                <h3 className="mb-2 font-semibold text-gray-900 line-clamp-2 group-hover:text-teal-600">
+                <h3 className="mb-2 font-semibold text-gray-900 line-clamp-2 group-hover:text-brand">
                     <a href="#">{article.title}</a>
                 </h3>
                 <p className="mb-4 text-sm text-gray-600 line-clamp-2">{article.excerpt}</p>
@@ -369,10 +369,10 @@ function CategoriesSection() {
                         <a
                             key={cat.slug}
                             href="#"
-                            className="flex items-center justify-between rounded-xl border border-gray-100 bg-gray-50 p-5 transition-colors hover:border-teal-500 hover:bg-teal-50"
+                            className="flex items-center justify-between rounded-xl border border-gray-100 bg-gray-50 p-5 transition-colors hover:border-brand hover:bg-brand-50"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-100 text-teal-600">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-100 text-brand">
                                     <Tag className="h-5 w-5" />
                                 </div>
                                 <span className="font-medium text-gray-900">{cat.name}</span>
@@ -393,11 +393,11 @@ function NewsletterSection() {
     return (
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
-                <div className="rounded-xl bg-teal-600 p-8 text-center md:p-12">
+                <div className="rounded-xl bg-brand p-8 text-center md:p-12">
                     <h2 className="mb-4 text-xl font-bold text-white md:text-2xl">
                         Dapatkan Artikel Terbaru
                     </h2>
-                    <p className="mx-auto mb-6 max-w-xl text-teal-100">
+                    <p className="mx-auto mb-6 max-w-xl text-brand-100">
                         Daftar newsletter kami untuk mendapatkan update artikel, tips, dan informasi
                         seputar kesehatan mental langsung ke email Anda.
                     </p>
@@ -405,7 +405,7 @@ function NewsletterSection() {
                         <input
                             type="email"
                             placeholder="Masukkan email Anda"
-                            className="flex-1 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300"
+                            className="flex-1 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-light"
                         />
                         <button className="rounded-lg bg-gray-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-800">
                             Berlangganan
@@ -425,7 +425,7 @@ function Footer() {
         <footer className="bg-gray-900 py-12 text-gray-300">
             <div className="mx-auto max-w-7xl px-4 text-center md:px-6">
                 <div className="mb-4 flex items-center justify-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-600 text-lg font-bold text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
                         TP
                     </div>
                     <span className="text-lg font-semibold text-white">TeduhPikiran</span>
