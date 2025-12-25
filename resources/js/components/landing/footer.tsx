@@ -96,8 +96,14 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom */}
-                <div className="mt-10 border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+                <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row">
                     <p>© {new Date().getFullYear()} TeduhPikiran. Semua hak dilindungi.</p>
+                    <a
+                        href="/admin/login"
+                        className="text-gray-500 transition-colors hover:text-brand-light"
+                    >
+                        Admin Login
+                    </a>
                 </div>
             </div>
         </footer>
