@@ -33,9 +33,11 @@ export default function Navbar({ activePath }: NavbarProps) {
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
-                        TP
-                    </div>
+                    <img
+                        src="/images/logo_uici.svg"
+                        alt="UICI Logo"
+                        className="h-10 w-auto"
+                    />
                     <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
                 </Link>
 

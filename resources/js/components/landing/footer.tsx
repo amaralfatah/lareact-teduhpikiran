@@ -13,9 +13,11 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="md:col-span-2">
                         <div className="mb-4 flex items-center gap-3">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
-                                TP
-                            </div>
+                            <img
+                                src="/images/logo_uici.svg"
+                                alt="UICI Logo"
+                                className="h-10 w-auto"
+                            />
                             <span className="text-lg font-semibold text-white">TeduhPikiran</span>
                         </div>
                         <p className="mb-6 text-sm text-gray-400">

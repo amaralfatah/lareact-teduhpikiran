@@ -157,9 +157,11 @@ function HeroSection() {
                             lebih sehat mental dan berkembang jauh lebih hebat lagi.
                         </p>
                     </div>
-                    <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-brand text-2xl font-bold text-white">
-                        TP
-                    </div>
+                    <img
+                        src="/images/logo_uici.svg"
+                        alt="UICI Logo"
+                        className="h-16 w-auto"
+                    />
                 </div>
             </div>
         </section>
@@ -208,75 +210,79 @@ function ProductCard({
     isCourse?: boolean;
 }) {
     return (
-        <div className="grid gap-8 rounded-xl bg-white p-6 shadow-sm md:grid-cols-2">
-            {/* Image */}
-            <div className="flex justify-center">
-                <img
-                    src={product.image}
-                    alt={product.title}
-                    className="h-64 w-auto rounded-xl object-cover shadow-md md:h-80"
-                />
-            </div>
-
-            {/* Content */}
-            <div className="flex flex-col">
-                {/* Badge */}
-                <div className="mb-3 flex items-center gap-2">
-                    {isPremium ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
-                            <Star className="h-3 w-3" />
-                            Premium
-                        </span>
-                    ) : isCourse ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700">
-                            <GraduationCap className="h-3 w-3" />
-                            Online Course
-                        </span>
-                    ) : (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
-                            <BookOpen className="h-3 w-3" />
-                            Gratis
-                        </span>
-                    )}
+        <div className="overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md">
+            <div className="grid md:grid-cols-5">
+                {/* Image */}
+                <div className="flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-8 md:col-span-2">
+                    <img
+                        src={product.image}
+                        alt={product.title}
+                        className="aspect-[3/4] h-auto w-full max-w-[200px] rounded-xl object-cover shadow-lg md:max-w-[240px]"
+                    />
                 </div>
 
-                {/* Title */}
-                <h3 className="mb-4 text-lg font-semibold text-gray-900">{product.title}</h3>
-
-                {/* Description */}
-                <ul className="mb-4 space-y-2">
-                    {product.description.map((desc, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                            <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" />
-                            {desc}
-                        </li>
-                    ))}
-                </ul>
-
-                {/* Table of Contents */}
-                <div className="mb-6">
-                    <p className="mb-2 text-sm font-medium text-gray-900">Daftar Isi:</p>
-                    <ol className="list-inside list-decimal space-y-1 text-sm text-gray-600">
-                        {product.contents.slice(0, 5).map((content, idx) => (
-                            <li key={idx}>{content}</li>
-                        ))}
-                        {product.contents.length > 5 && (
-                            <li className="text-gray-400">...dan {product.contents.length - 5} lainnya</li>
+                {/* Content */}
+                <div className="flex flex-col p-6 md:col-span-3 md:p-8">
+                    {/* Badge */}
+                    <div className="mb-3 flex items-center gap-2">
+                        {isPremium ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-700">
+                                <Star className="h-3 w-3" />
+                                Premium
+                            </span>
+                        ) : isCourse ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-700">
+                                <GraduationCap className="h-3 w-3" />
+                                Online Course
+                            </span>
+                        ) : (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">
+                                <BookOpen className="h-3 w-3" />
+                                Gratis
+                            </span>
                         )}
-                    </ol>
-                </div>
+                    </div>
 
-                {/* Button */}
-                <div className="mt-auto">
-                    <a
-                        href={product.downloadUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-lg bg-brand px-5 py-2.5 font-medium text-white transition-colors hover:bg-brand-dark"
-                    >
-                        <Download className="h-4 w-4" />
-                        {isPremium || isCourse ? 'Pesan Sekarang' : 'Download Gratis'}
-                    </a>
+                    {/* Title */}
+                    <h3 className="mb-4 text-xl font-semibold leading-tight text-gray-900">
+                        {product.title}
+                    </h3>
+
+                    {/* Description */}
+                    <ul className="mb-4 space-y-2">
+                        {product.description.map((desc, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
+                                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand" />
+                                {desc}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Table of Contents */}
+                    <div className="mb-6 flex-grow">
+                        <p className="mb-2 text-sm font-medium text-gray-900">Daftar Isi:</p>
+                        <ol className="list-inside list-decimal space-y-1 text-sm text-gray-600">
+                            {product.contents.slice(0, 5).map((content, idx) => (
+                                <li key={idx}>{content}</li>
+                            ))}
+                            {product.contents.length > 5 && (
+                                <li className="text-gray-400">...dan {product.contents.length - 5} lainnya</li>
+                            )}
+                        </ol>
+                    </div>
+
+                    {/* Button */}
+                    <div className="mt-auto pt-2">
+                        <a
+                            href={product.downloadUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 font-medium text-white transition-colors hover:bg-brand-dark"
+                        >
+                            <Download className="h-4 w-4" />
+                            {isPremium || isCourse ? 'Pesan Sekarang' : 'Download Gratis'}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
