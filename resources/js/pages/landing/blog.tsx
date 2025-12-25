@@ -1,3 +1,4 @@
+import { Footer, Navbar } from '@/components/landing';
 import LandingLayout from '@/layouts/landing-layout';
 import { Head, Link } from '@inertiajs/react';
 import {
@@ -6,24 +7,13 @@ import {
     ChevronRight,
     Clock,
     Download,
-    Menu,
     Search,
     Tag,
     User,
-    Users,
-    X,
 } from 'lucide-react';
 import { useState } from 'react';
 
-// Navigation data
-const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Products', href: '/products' },
-    { name: 'Services', href: '/services' },
-    { name: 'Events', href: '/events' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about' },
-];
+
 
 // Categories
 const categories = [
@@ -106,73 +96,7 @@ const featuredArticle = {
     ctaLink: 'https://docs.google.com/forms',
 };
 
-/**
- * Navigation Component
- */
-function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
-            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-                <Link href="/" className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
-                        TP
-                    </div>
-                    <span className="text-lg font-semibold text-gray-900">TeduhPikiran</span>
-                </Link>
-
-                <nav className="hidden items-center gap-8 md:flex">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className={`text-sm transition-colors hover:text-brand ${link.href === '/blog' ? 'font-medium text-brand' : 'text-gray-600'
-                                }`}
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                </nav>
-
-                <a
-                    href="https://chat.whatsapp.com/example"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden items-center gap-2 rounded-lg bg-brand px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-dark md:inline-flex"
-                >
-                    <Users className="h-4 w-4" />
-                    Join Community
-                </a>
-
-                <button
-                    className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 md:hidden"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle menu"
-                >
-                    {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </button>
-            </div>
-
-            {isOpen && (
-                <div className="border-t border-gray-100 bg-white px-4 py-4 md:hidden">
-                    <nav className="flex flex-col gap-2">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={`rounded-lg px-3 py-2.5 transition-colors hover:bg-gray-50 ${link.href === '/blog' ? 'font-medium text-brand' : 'text-gray-600'
-                                    }`}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                    </nav>
-                </div>
-            )}
-        </header>
-    );
-}
 
 /**
  * Hero Section with Featured Article
@@ -417,26 +341,7 @@ function NewsletterSection() {
     );
 }
 
-/**
- * Footer Component
- */
-function Footer() {
-    return (
-        <footer className="bg-gray-900 py-12 text-gray-300">
-            <div className="mx-auto max-w-7xl px-4 text-center md:px-6">
-                <div className="mb-4 flex items-center justify-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand text-lg font-bold text-white">
-                        TP
-                    </div>
-                    <span className="text-lg font-semibold text-white">TeduhPikiran</span>
-                </div>
-                <p className="text-sm text-gray-400">
-                    © {new Date().getFullYear()} TeduhPikiran. Semua hak dilindungi.
-                </p>
-            </div>
-        </footer>
-    );
-}
+
 
 /**
  * Blog Page Component
@@ -446,7 +351,7 @@ export default function Blog() {
         <LandingLayout>
             <Head title="Blog - TeduhPikiran" />
 
-            <Navbar />
+            <Navbar activePath="/blog" />
             <HeroSection />
             <SearchCategoriesSection />
             <ArticlesSection />
