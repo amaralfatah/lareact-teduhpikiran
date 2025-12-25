@@ -11,7 +11,19 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 
-// Counseling types
+// Types
+interface Psychologist {
+    name: string;
+    title: string;
+    image: string;
+    expertise: string[];
+}
+
+interface ServicesProps {
+    psychologists: Psychologist[];
+}
+
+// Counseling types (static)
 const counselingTypes = [
     {
         icon: User,
@@ -33,58 +45,6 @@ const counselingTypes = [
     },
 ];
 
-// Psychologists data
-const psychologists = [
-    {
-        name: 'Jainal Ilmi, M.Psi, Psikolog',
-        title: 'Psikolog Klinis',
-        image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400',
-        expertise: ['Hipnoterapi', 'Self Hypnosis', 'Mindfulness', 'Self Development', 'Komunikasi', 'Kecemasan', 'Depresi', 'Overthinking'],
-    },
-    {
-        name: 'Syafira Putri E., M.Psi, Psikolog',
-        title: 'Psikolog Klinis',
-        image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400',
-        expertise: ['Kecemasan', 'Depresi', 'Kesepian', 'Quarter Life Crisis', 'Trauma Healing', 'Self Development'],
-    },
-    {
-        name: 'Baiq Sopia, M.Psi, Psikolog',
-        title: 'Psikolog Klinis',
-        image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400',
-        expertise: ['Depresi', 'Kecemasan', 'Self Harm', 'Traumatis', 'Perkembangan Anak & Remaja', 'Parenting'],
-    },
-    {
-        name: 'Furqan Nugraha R., M.Psi, Psikolog',
-        title: 'Psikolog Klinis Remaja & Dewasa',
-        image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400',
-        expertise: ['Permasalahan Remaja', 'Konsultasi Pasangan', 'Keluarga', 'Stres', 'Kecemasan', 'Depresi'],
-    },
-    {
-        name: 'Ria Rizki U., M.Psi, Psikolog',
-        title: 'Psikolog Klinis Dewasa',
-        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
-        expertise: ['Stress', 'Cemas', 'Pengelolaan Emosi', 'Penerimaan Diri', 'Konsultasi Pasangan & Keluarga'],
-    },
-    {
-        name: 'Mutiara Sadjad, M.Psi, Psikolog',
-        title: 'Psikolog Klinis',
-        image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400',
-        expertise: ['Depresi', 'Kecemasan', 'Relationship', 'Pasangan', 'Keluarga'],
-    },
-    {
-        name: 'Suardi Ningrat, M.Psi, Psikolog',
-        title: 'Psikolog Klinis',
-        image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400',
-        expertise: ['CBT', 'Logoterapi', 'Mindfulness', 'Psikolog Kreatif'],
-    },
-    {
-        name: 'Nur Indah Agustini, M.Psi, Psikolog',
-        title: 'Psikolog Klinis',
-        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400',
-        expertise: ['Kecemasan', 'Depresi', 'Self Development', 'Konseling Individu'],
-    },
-];
-
 /**
  * Hero Section
  */
@@ -92,13 +52,11 @@ function HeroSection() {
     return (
         <section className="bg-brand pt-20">
             <div className="mx-auto max-w-7xl px-4 py-16 text-center md:px-6">
-                {/* Logo */}
                 <div className="mb-6 flex justify-center">
                     <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white text-3xl font-bold text-brand shadow-lg">
                         TC
                     </div>
                 </div>
-
                 <p className="mb-3 text-sm font-medium uppercase tracking-wider text-brand-light">
                     Konseling Psikologi
                 </p>
@@ -146,11 +104,10 @@ function CounselingTypesSection() {
 /**
  * Psychologist Section
  */
-function PsychologistSection() {
+function PsychologistSection({ psychologists }: { psychologists: Psychologist[] }) {
     return (
         <section className="bg-gray-50 py-20">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
-                {/* Header */}
                 <div className="mb-12 text-center">
                     <p className="mb-3 text-sm font-medium uppercase tracking-wider text-brand">
                         Daftar Psikolog Kami
@@ -158,8 +115,6 @@ function PsychologistSection() {
                     <h2 className="mb-6 text-2xl font-bold text-gray-900 md:text-3xl">
                         Agendakan Konseling dengan Psikolog Profesional
                     </h2>
-
-                    {/* CTA Buttons */}
                     <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                         <a
                             href="https://bit.ly/konselingonlinecapsi"
@@ -181,8 +136,6 @@ function PsychologistSection() {
                         </a>
                     </div>
                 </div>
-
-                {/* Psychologist Grid */}
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     {psychologists.map((psych, index) => (
                         <PsychologistCard key={index} psychologist={psych} />
@@ -194,9 +147,9 @@ function PsychologistSection() {
 }
 
 /**
- * Psychologist Card with hover effect
+ * Psychologist Card
  */
-function PsychologistCard({ psychologist }: { psychologist: typeof psychologists[0] }) {
+function PsychologistCard({ psychologist }: { psychologist: Psychologist }) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -205,10 +158,8 @@ function PsychologistCard({ psychologist }: { psychologist: typeof psychologists
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* Front Side */}
             <div
-                className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'
-                    }`}
+                className={`absolute inset-0 flex flex-col items-center justify-center p-6 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}
             >
                 <div className="mb-5 h-36 w-36 overflow-hidden rounded-full border-4 border-brand-50 shadow-md">
                     <img
@@ -222,11 +173,8 @@ function PsychologistCard({ psychologist }: { psychologist: typeof psychologists
                 </h3>
                 <p className="text-center text-xs font-medium text-brand">{psychologist.title}</p>
             </div>
-
-            {/* Back Side (on hover) */}
             <div
-                className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-brand to-brand-dark p-6 text-white transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'
-                    }`}
+                className={`absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-brand to-brand-dark p-6 text-white transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
             >
                 <h3 className="mb-4 text-center text-sm font-semibold leading-tight">{psychologist.name}</h3>
                 <p className="mb-4 text-center text-xs text-brand-100">Berpengalaman di bidang:</p>
@@ -278,15 +226,14 @@ function CTASection() {
 /**
  * Services Page Component
  */
-export default function Services() {
+export default function Services({ psychologists = [] }: ServicesProps) {
     return (
         <LandingLayout>
             <Head title="Services - TeduhPikiran" />
-
             <Navbar activePath="/services" />
             <HeroSection />
             <CounselingTypesSection />
-            <PsychologistSection />
+            <PsychologistSection psychologists={psychologists} />
             <CTASection />
             <Footer />
         </LandingLayout>

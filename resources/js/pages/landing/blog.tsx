@@ -15,93 +15,43 @@ import { useState } from 'react';
 
 
 
-// Categories
-const categories = [
-    { name: 'Kesehatan Mental', slug: 'kesehatan-mental', count: 15 },
-    { name: 'Produktivitas', slug: 'produktivitas', count: 8 },
-    { name: 'Relationship', slug: 'relationship', count: 12 },
-    { name: 'Self Development', slug: 'self-development', count: 10 },
-];
+// Types
+interface BlogCategory {
+    name: string;
+    slug: string;
+    count: number;
+}
 
-// Blog articles
-const articles = [
-    {
-        id: 1,
-        title: 'Self Diagnosis, Sebuah Jembatan Petaka Untuk Diri',
-        excerpt: '"Duh dari kemarin kok, aku hanya ingin tidur terus-menerus, ya?" Apakah ini tanda depresi?',
-        category: 'Kesehatan Mental',
-        date: '27 Mar 2022',
-        readTime: '5 min',
-        image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=400',
-        author: 'TeduhPikiran',
-    },
-    {
-        id: 2,
-        title: 'Apa Itu Toxic Positivity? Bagaimana Dampaknya Bagi Kesehatan Mental?',
-        excerpt: 'Toxic positivity, tentu kamu sering mendengar kata-kata tersebut, baik melalui media sosial atau percakapan sehari-hari.',
-        category: 'Kesehatan Mental',
-        date: '27 Feb 2022',
-        readTime: '7 min',
-        image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400',
-        author: 'TeduhPikiran',
-    },
-    {
-        id: 3,
-        title: 'Kelelahan Bekerja? Hati-hati Mengalami Burnout',
-        excerpt: 'Burnout adalah kondisi kelelahan emosional, fisik, dan mental yang disebabkan oleh stres berlebihan dan berkepanjangan.',
-        category: 'Produktivitas',
-        date: '26 Feb 2022',
-        readTime: '6 min',
-        image: 'https://images.unsplash.com/photo-1606011334315-025e4baab810?w=400',
-        author: 'TeduhPikiran',
-    },
-    {
-        id: 4,
-        title: 'Insecure: Penyebab Dan Cara Mengatasinya',
-        excerpt: 'Insecure? Apakah kamu pernah mengalaminya, atau sedang mengalaminya? Pernah enggak merasa tidak percaya diri?',
-        category: 'Self Development',
-        date: '23 Feb 2022',
-        readTime: '8 min',
-        image: 'https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=400',
-        author: 'TeduhPikiran',
-    },
-    {
-        id: 5,
-        title: 'Tips Tetap Sehat Mental Di Masa Pandemi',
-        excerpt: 'Pentingnya tetap sehat mental di masa pandemi? Bagaimana caranya menjaga kesehatan mental kita?',
-        category: 'Kesehatan Mental',
-        date: '21 Jan 2022',
-        readTime: '5 min',
-        image: 'https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=400',
-        author: 'TeduhPikiran',
-    },
-    {
-        id: 6,
-        title: 'Apa Itu Overthinking? Yuk Kenali Ciri dan Cara Mengatasinya',
-        excerpt: 'Overthinking, tentu sebagian besar dari kita sering mendengar kata tersebut. Apa sebenarnya overthinking itu?',
-        category: 'Kesehatan Mental',
-        date: '15 Jan 2022',
-        readTime: '6 min',
-        image: 'https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=400',
-        author: 'TeduhPikiran',
-    },
-];
+interface BlogPost {
+    id: number;
+    title: string;
+    excerpt: string;
+    category: string;
+    date: string;
+    readTime: string;
+    image: string;
+    author: string;
+}
 
-// Featured article
-const featuredArticle = {
-    title: 'Cara Menghilangkan Stres Berkepanjangan',
-    excerpt: 'Ketika seseorang mengalami stres, maka hormon kortisol dan adrenalin akan meningkat di dalam tubuh dan memicu penyakit jantung, gangguan pencernaan, bahkan depresi.',
-    category: 'Kesehatan Mental',
-    ctaText: 'Download e-book tips dan trik managemen stress di sini.',
-    ctaLink: 'https://docs.google.com/forms',
-};
+interface BlogProps {
+    categories?: BlogCategory[];
+    articles?: BlogPost[];
+}
+
+// Default fallback data removed
+
 
 
 
 /**
  * Hero Section with Featured Article
  */
-function HeroSection() {
+/**
+ * Hero Section with Featured Article
+ */
+function HeroSection({ featured }: { featured?: BlogPost }) {
+    if (!featured) return null;
+
     return (
         <section className="bg-brand pt-20">
             <div className="mx-auto max-w-7xl px-4 py-16 md:px-6">
@@ -109,30 +59,28 @@ function HeroSection() {
                     {/* Content */}
                     <div className="text-white">
                         <span className="mb-3 inline-block rounded-full bg-brand px-3 py-1 text-sm font-medium">
-                            {featuredArticle.category}
+                            {featured.category}
                         </span>
                         <h1 className="mb-4 text-2xl font-bold md:text-4xl">
-                            {featuredArticle.title}
+                            {featured.title}
                         </h1>
-                        <p className="mb-4 text-brand-100">{featuredArticle.excerpt}</p>
-                        <p className="mb-6 text-sm text-brand-light">{featuredArticle.ctaText}</p>
+                        <p className="mb-4 text-brand-100">{featured.excerpt}</p>
+                        <p className="mb-6 text-sm text-brand-light">Baca selengkapnya artikel ini untuk wawasan lebih dalam.</p>
                         <a
-                            href={featuredArticle.ctaLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href={featured.id ? `/blog/${featured.id}` : '#'}
                             className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 font-medium text-brand transition-colors hover:bg-gray-100"
                         >
                             <Download className="h-4 w-4" />
-                            Download Sekarang
+                            Baca Artikel
                         </a>
                     </div>
 
                     {/* Image */}
                     <div className="hidden md:block">
                         <img
-                            src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=500"
-                            alt="Mental Health"
-                            className="rounded-xl shadow-lg"
+                            src={featured.image}
+                            alt={featured.title}
+                            className="rounded-xl shadow-lg w-full h-80 object-cover"
                         />
                     </div>
                 </div>
@@ -144,8 +92,14 @@ function HeroSection() {
 /**
  * Search and Categories Section
  */
-function SearchCategoriesSection() {
+function SearchCategoriesSection({ categories, onSearch }: { categories: BlogCategory[], onSearch: (query: string) => void }) {
     const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+        onSearch(query);
+    };
 
     return (
         <section className="border-b border-gray-100 bg-white py-6">
@@ -158,7 +112,7 @@ function SearchCategoriesSection() {
                             type="text"
                             placeholder="Cari artikel..."
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onChange={handleSearch}
                             className="w-full rounded-lg border border-gray-200 py-2.5 pl-10 pr-4 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
                         />
                     </div>
@@ -186,29 +140,35 @@ function SearchCategoriesSection() {
 /**
  * Articles Grid Section
  */
-function ArticlesSection() {
+function ArticlesSection({ articles }: { articles: BlogPost[] }) {
     return (
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
                 <div className="mb-8 flex items-center justify-between">
                     <h2 className="text-xl font-bold text-gray-900 md:text-2xl">Artikel Terbaru</h2>
-                    <a
+                    {/* <a
                         href="#"
                         className="flex items-center gap-1 text-sm font-medium text-brand hover:text-brand-dark"
                     >
                         Lihat Semua
                         <ArrowRight className="h-4 w-4" />
-                    </a>
+                    </a> */}
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {articles.map((article) => (
-                        <ArticleCard key={article.id} article={article} />
-                    ))}
-                </div>
+                {articles.length > 0 ? (
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {articles.map((article) => (
+                            <ArticleCard key={article.id} article={article} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="text-center py-12 text-gray-500">
+                        Tidak ada artikel ditemukan.
+                    </div>
+                )}
 
-                {/* Pagination */}
-                <div className="mt-10 flex justify-center">
+                {/* Pagination - Simplified for V1 */}
+                {/* <div className="mt-10 flex justify-center">
                     <div className="flex items-center gap-2">
                         {[1, 2, 3, 4, 5].map((page) => (
                             <button
@@ -226,7 +186,7 @@ function ArticlesSection() {
                             <ChevronRight className="h-4 w-4" />
                         </button>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     );
@@ -235,7 +195,7 @@ function ArticlesSection() {
 /**
  * Article Card Component
  */
-function ArticleCard({ article }: { article: typeof articles[0] }) {
+function ArticleCard({ article }: { article: BlogPost }) {
     return (
         <article className="group overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
             {/* Image */}
@@ -282,7 +242,7 @@ function ArticleCard({ article }: { article: typeof articles[0] }) {
 /**
  * Categories Section
  */
-function CategoriesSection() {
+function CategoriesSection({ categories }: { categories: BlogCategory[] }) {
     return (
         <section className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -346,16 +306,35 @@ function NewsletterSection() {
 /**
  * Blog Page Component
  */
-export default function Blog() {
+export default function Blog({ categories = [], articles = [] }: BlogProps) {
+    // Client-side search filtering
+    const [filteredArticles, setFilteredArticles] = useState(articles);
+    const featured = filteredArticles[0]; // Use first filtered result as featured, or maybe keep static featured? better to use first of all articles
+    const displayArticles = filteredArticles.slice(1); // Show rest in grid
+
+    const handleSearch = (query: string) => {
+        if (!query) {
+            setFilteredArticles(articles);
+            return;
+        }
+        const lower = query.toLowerCase();
+        const filtered = articles.filter(a =>
+            a.title.toLowerCase().includes(lower) ||
+            a.excerpt.toLowerCase().includes(lower) ||
+            a.category.toLowerCase().includes(lower)
+        );
+        setFilteredArticles(filtered);
+    };
+
     return (
         <LandingLayout>
             <Head title="Blog - TeduhPikiran" />
 
             <Navbar activePath="/blog" />
-            <HeroSection />
-            <SearchCategoriesSection />
-            <ArticlesSection />
-            <CategoriesSection />
+            <HeroSection featured={articles[0]} />
+            <SearchCategoriesSection categories={categories} onSearch={handleSearch} />
+            <ArticlesSection articles={filteredArticles} />
+            <CategoriesSection categories={categories} />
             <NewsletterSection />
             <Footer />
         </LandingLayout>

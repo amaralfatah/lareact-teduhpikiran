@@ -276,7 +276,7 @@ class LandingPageSeeder extends Seeder
             [
                 'title' => 'Seminar Kesehatan Mental Universitas Pertamina',
                 'image' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400',
-                'event_date' => '2023-12-15',
+                'event_date' => '2025-01-15',
             ],
             [
                 'title' => 'Workshop Self Love untuk Remaja',

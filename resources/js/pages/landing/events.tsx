@@ -12,6 +12,28 @@ import {
     Shield,
 } from 'lucide-react';
 
+// Types
+interface PastEvent {
+    title: string;
+    date: string;
+    image: string;
+}
+
+interface UpcomingEvent {
+    title: string;
+    date: string;
+    image: string;
+    description?: string;
+}
+
+interface EventsProps {
+    upcomingEvents?: UpcomingEvent[];
+    pastEvents?: PastEvent[];
+}
+
+// Default fallback data removed
+
+
 
 
 // Topic levels
@@ -283,7 +305,7 @@ function CertificationsSection() {
 /**
  * Past Events Section
  */
-function PastEventsSection() {
+function PastEventsSection({ pastEvents }: { pastEvents: PastEvent[] }) {
     return (
         <section className="bg-white py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -359,19 +381,81 @@ function CTASection() {
 
 
 /**
+ * Upcoming Events Section (Dynamic from DB)
+ */
+function UpcomingEventsSection({ upcomingEvents }: { upcomingEvents: UpcomingEvent[] }) {
+    if (upcomingEvents.length === 0) return null;
+
+    return (
+        <section className="bg-brand-50 py-20">
+            <div className="mx-auto max-w-7xl px-4 md:px-6">
+                <div className="mb-12 text-center">
+                    <p className="mb-3 text-sm font-medium uppercase tracking-wider text-brand">
+                        Upcoming Events
+                    </p>
+                    <h2 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
+                        Event Yang Akan Datang
+                    </h2>
+                    <p className="mx-auto max-w-2xl text-gray-600">
+                        Jangan lewatkan kesempatan untuk bergabung dalam event-event menarik kami
+                    </p>
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {upcomingEvents.map((event, index) => (
+                        <div
+                            key={index}
+                            className="group overflow-hidden rounded-xl bg-white shadow-sm transition-all hover:shadow-lg"
+                        >
+                            <div className="relative h-48 overflow-hidden">
+                                {event.image ? (
+                                    <img
+                                        src={event.image}
+                                        alt={event.title}
+                                        className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                                    />
+                                ) : (
+                                    <div className="flex h-full w-full items-center justify-center bg-brand-100">
+                                        <Calendar className="h-12 w-12 text-brand" />
+                                    </div>
+                                )}
+                                <div className="absolute top-3 left-3 rounded-full bg-brand px-3 py-1 text-xs font-medium text-white">
+                                    {event.date}
+                                </div>
+                            </div>
+                            <div className="p-5">
+                                <h3 className="mb-2 text-lg font-semibold text-gray-900 group-hover:text-brand">
+                                    {event.title}
+                                </h3>
+                                {event.description && (
+                                    <p className="text-sm text-gray-600 line-clamp-2">
+                                        {event.description}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/**
  * Events Page Component
  */
-export default function Events() {
+export default function Events({ upcomingEvents = [], pastEvents = [] }: EventsProps) {
     return (
         <LandingLayout>
             <Head title="Events - TeduhPikiran" />
 
             <Navbar activePath="/events" />
             <HeroSection />
+            <UpcomingEventsSection upcomingEvents={upcomingEvents} />
             <TopicLevelsSection />
             <InHouseTrainingSection />
             <CertificationsSection />
-            <PastEventsSection />
+            <PastEventsSection pastEvents={pastEvents} />
             <CTASection />
             <Footer />
         </LandingLayout>

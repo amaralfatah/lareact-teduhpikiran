@@ -11,6 +11,18 @@ import {
     Smartphone,
 } from 'lucide-react';
 
+// Types
+interface BlogPost {
+    title: string;
+    date: string;
+    image: string;
+    href: string;
+}
+
+interface LandingProps {
+    blogPosts?: BlogPost[];
+}
+
 
 // Stats data
 const stats = [
@@ -64,33 +76,8 @@ const services = [
     },
 ];
 
-// Blog posts data
-const blogPosts = [
-    {
-        title: 'Self Diagnosis, Sebuah Jembatan Petaka Untuk Diri',
-        date: '27 Mar 2022',
-        image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400',
-        href: '/blog/self-diagnosis',
-    },
-    {
-        title: 'Apa Itu Toxic Positivity? Dampaknya Bagi Kesehatan Mental',
-        date: '27 Feb 2022',
-        image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=400',
-        href: '/blog/toxic-positivity',
-    },
-    {
-        title: 'Kelelahan Bekerja? Hati-hati Mengalami Burnout',
-        date: '26 Feb 2022',
-        image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=400',
-        href: '/blog/burnout',
-    },
-    {
-        title: 'Insecure: Penyebab Dan Cara Mengatasinya',
-        date: '23 Feb 2022',
-        image: 'https://images.unsplash.com/photo-1620147461831-a97b99ade1d3?w=400',
-        href: '/blog/insecure',
-    },
-];
+// Default fallback data removed
+
 
 /**
  * Hero Section Component
@@ -362,7 +349,7 @@ function CombinedCTASection() {
 /**
  * Blog Section Component
  */
-function BlogSection() {
+function BlogSection({ blogPosts }: { blogPosts: BlogPost[] }) {
     return (
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -412,7 +399,7 @@ function BlogSection() {
 /**
  * Landing Page Component
  */
-export default function Landing() {
+export default function Landing({ blogPosts = [] }: LandingProps) {
     return (
         <LandingLayout>
             <Head title="TeduhPikiran - Edukasi Kesehatan Mental & Psikologi Gratis" />
@@ -424,7 +411,7 @@ export default function Landing() {
             <ServicesSection />
             <SelfLoveTestCTA />
             <CombinedCTASection />
-            <BlogSection />
+            <BlogSection blogPosts={blogPosts} />
             <Footer />
         </LandingLayout>
     );

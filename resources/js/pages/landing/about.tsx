@@ -13,6 +13,20 @@ import {
     Users,
 } from 'lucide-react';
 
+// Types
+interface TeamMember {
+    name: string;
+    role: string;
+    image: string;
+}
+
+interface AboutProps {
+    teamMembers: TeamMember[];
+}
+
+// Default fallback data removed
+
+
 
 
 // Statistics
@@ -48,29 +62,6 @@ const coreValues = [
     },
 ];
 
-// Team members
-const teamMembers = [
-    {
-        name: 'Jainal Ilmi',
-        role: 'Psikolog & Chief Executive Officer',
-        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300',
-    },
-    {
-        name: 'Baiq Sopia',
-        role: 'Psikolog & Chief Financial Officer',
-        image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300',
-    },
-    {
-        name: 'Dimas Fachri',
-        role: 'Chief Technology Officer',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
-    },
-    {
-        name: 'Rina Putri',
-        role: 'Chief Marketing Officer',
-        image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300',
-    },
-];
 
 
 
@@ -243,7 +234,7 @@ function CoreValuesSection() {
 /**
  * Team Section
  */
-function TeamSection() {
+function TeamSection({ teamMembers }: { teamMembers: TeamMember[] }) {
     return (
         <section className="bg-gray-50 py-16">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
@@ -314,7 +305,7 @@ function CTASection() {
 /**
  * About Page Component
  */
-export default function About() {
+export default function About({ teamMembers = [] }: AboutProps) {
     return (
         <LandingLayout>
             <Head title="About - TeduhPikiran" />
@@ -324,7 +315,7 @@ export default function About() {
             <StatisticsSection />
             <HistorySection />
             <CoreValuesSection />
-            <TeamSection />
+            <TeamSection teamMembers={teamMembers} />
             <CTASection />
             <Footer />
         </LandingLayout>

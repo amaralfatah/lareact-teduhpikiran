@@ -12,124 +12,29 @@ import {
 import { useState } from 'react';
 
 
-// Product categories
-const categories = [
-    { id: 'ebook-gratis', label: 'E-book Gratis' },
-    { id: 'ebook-premium', label: 'E-book Premium' },
-    { id: 'online-course', label: 'Online Course' },
-];
+// Types
+interface Category {
+    id: string;
+    label: string;
+}
 
-// Free E-books data
-const freeEbooks = [
-    {
-        id: 1,
-        title: '5 Manfaat NLP untuk Kehidupan',
-        category: 'E-book Gratis',
-        image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400',
-        description: [
-            'Apakah kamu seorang praktisi Psikologi/konselor/coach dan ingin menambah wawasan tentang ilmu komunikasi yang persuasif?',
-            'Ingin memahami lebih luas bagaimana cara kerja manusia berpikir, merasa dan berperilaku',
-            'Mau menambah referensi dibidang pengembangan diri?',
-        ],
-        contents: [
-            'Definisi Neuro Linguistik Programming (NLP)',
-            'Landasan Berpikir Para Pembelajar NLP',
-            'Manfaat #1: Mengontrol Diri dengan Baik',
-            'Manfaat #2: Menjalin Komunikasi yang Efektif',
-            'Manfaat #3: Mengenal Diri lebih dalam',
-            'Manfaat #4: Membangun Kedekatan dengan Orang Lain',
-            'Manfaat #5: Mempercepat Goal Tercapai',
-        ],
-        downloadUrl: 'https://bit.ly/freee-booknlp',
-    },
-    {
-        id: 2,
-        title: 'Self Confidence Formula: Resep Rahasia Percaya Diri Berkomunikasi dan Publik Speaking',
-        category: 'E-book Gratis',
-        image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400',
-        description: [
-            'Apakah kamu akhir-akhir ini merasa minder atau gugup ketika publik speaking?',
-            'Sering takut dan cemas kalau diminta berbicara didepan orang banyak?',
-            'Ingin belajar percaya diri publik speaking secara gratis?',
-        ],
-        contents: [
-            'Menemukan Self Confidence (Cerita Pengalaman Penulis)',
-            'Resep Rahasia Self Confidence',
-            'Tiga Bumbu Utama Self Confidence Berkomunikasi dan Publik Speaking',
-        ],
-        downloadUrl: 'https://bit.ly/freeebookselfconfidence',
-    },
-];
+interface Product {
+    id: number;
+    title: string;
+    category: string;
+    image: string;
+    description: string[];
+    contents: string[];
+    downloadUrl: string;
+}
 
-// Premium E-books data
-const premiumEbooks = [
-    {
-        id: 3,
-        title: 'Mini E-book Self Compassion: Sebuah Seni Mencintai Diri Sendiri untuk Mengatasi Masalah Mental',
-        category: 'E-book Premium',
-        image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400',
-        description: [
-            'Apakah kamu pernah merasa selalu ga cukup dengan dirimu yang sekarang?',
-            'Selalu saja menemukan kekurangan yang bisa kamu kritik kepada diri sendiri?',
-            'Sering banget merasa bersalah entah apa sebab spesifiknya?',
-        ],
-        contents: [
-            'Apa itu Self Compassion',
-            'Apa Manfaat Self Compassion',
-            '3 Ciri Self Compassion',
-            'Perbedaan Self Compassion, Gangguan Kepribadian Narsisme dan Egois',
-            '11 Tips Membangun Self Compassion',
-            'Worksheet: Surat Cinta Diri sendiri',
-            'Worksheet: Mantra Self Compassion',
-            'Worksheet: 30 Hari Tantangan Self Compassion',
-        ],
-        downloadUrl: 'https://wasap.at/yKKM7s',
-    },
-    {
-        id: 4,
-        title: 'Mini E-book Self Control: Mengelola Overthinking Agar Berubah Menjadi Positif Thinking',
-        category: 'E-book Premium',
-        image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400',
-        description: [
-            'Apakah kamu akhir-akhir ini merasa sering overthinking?',
-            'Sering dikuasai rasa marah yang sulit dikendalikan?',
-            'Hingga akhirnya bikin kamu jadi susah tidur alias insomnia?',
-        ],
-        contents: [
-            'Apa itu Self Control?',
-            'Manfaat Punya Self Control yang Baik',
-            'Faktor yang Mempengaruhi Overthinking dan Emosi Tidak Sehat',
-            'Berbagai Macam Pikiran Negatif dan Emosi Tidak Sehat',
-            '12 Tips Mengelola Overthinking dan Regulasi Emosi',
-            'Worksheet: Membangun Ulang Pikiran dengan Tehnik 3 Kolom',
-            'Worksheet: Mindfulness For Better Emotion',
-        ],
-        downloadUrl: 'https://wasap.at/i5oj8t',
-    },
-];
+interface ProductsProps {
+    categories?: Category[];
+    products?: Record<string, Product[]>;
+}
 
-// Online Courses data
-const onlineCourses = [
-    {
-        id: 5,
-        title: 'E-course Self Knowledge: Panduan Super Lengkap Mengenali Diri',
-        category: 'Online Course',
-        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400',
-        description: [
-            'Ingin mengetahui siapa diri kamu sebenarnya?',
-            'Mau menemukan potensi terbaik yang ada dalam diri?',
-            'Ingin punya arah hidup yang jelas dan terarah?',
-        ],
-        contents: [
-            'Modul 1: Mengenal Diri Sendiri',
-            'Modul 2: Menemukan Kekuatan dan Kelemahan',
-            'Modul 3: Membangun Kepercayaan Diri',
-            'Modul 4: Menetapkan Tujuan Hidup',
-            'Modul 5: Aksi Nyata Menuju Versi Terbaik',
-        ],
-        downloadUrl: 'https://tribeversity.com/course/detail/fhxgrl2n?source=chief',
-    },
-];
+// Default fallback data removed
+
 
 /**
  * Hero Section
@@ -171,9 +76,10 @@ function HeroSection() {
 /**
  * Category Navigation (Sticky)
  */
-function CategoryNav({ activeCategory, setActiveCategory }: {
+function CategoryNav({ activeCategory, setActiveCategory, categories }: {
     activeCategory: string;
     setActiveCategory: (id: string) => void;
+    categories: Category[];
 }) {
     return (
         <div className="sticky top-[73px] z-40 border-b border-gray-100 bg-white">
@@ -205,7 +111,7 @@ function ProductCard({
     isPremium = false,
     isCourse = false,
 }: {
-    product: typeof freeEbooks[0];
+    product: Product;
     isPremium?: boolean;
     isCourse?: boolean;
 }) {
@@ -292,39 +198,39 @@ function ProductCard({
 /**
  * Products Section
  */
-function ProductsSection({ activeCategory }: { activeCategory: string }) {
+function ProductsSection({
+    activeCategory,
+    products
+}: {
+    activeCategory: string;
+    products: Record<string, Product[]>
+}) {
+    const activeProducts = products[activeCategory] || [];
+    const isPremium = activeCategory === 'ebook-premium';
+    const isCourse = activeCategory === 'online-course';
+
     return (
         <section className="bg-gray-50 py-12">
             <div className="mx-auto max-w-7xl px-4 md:px-6">
-                {/* Free E-books */}
-                {activeCategory === 'ebook-gratis' && (
-                    <div className="space-y-8">
-                        <h2 className="text-xl font-bold text-gray-900">E-book Gratis</h2>
-                        {freeEbooks.map((ebook) => (
-                            <ProductCard key={ebook.id} product={ebook} />
-                        ))}
-                    </div>
-                )}
-
-                {/* Premium E-books */}
-                {activeCategory === 'ebook-premium' && (
-                    <div className="space-y-8">
-                        <h2 className="text-xl font-bold text-gray-900">E-book Premium</h2>
-                        {premiumEbooks.map((ebook) => (
-                            <ProductCard key={ebook.id} product={ebook} isPremium />
-                        ))}
-                    </div>
-                )}
-
-                {/* Online Courses */}
-                {activeCategory === 'online-course' && (
-                    <div className="space-y-8">
-                        <h2 className="text-xl font-bold text-gray-900">Online Course</h2>
-                        {onlineCourses.map((course) => (
-                            <ProductCard key={course.id} product={course} isCourse />
-                        ))}
-                    </div>
-                )}
+                <div className="space-y-8">
+                    <h2 className="text-xl font-bold text-gray-900 capitalize">
+                        {activeCategory.replace('-', ' ')}
+                    </h2>
+                    {activeProducts.length > 0 ? (
+                        activeProducts.map((product) => (
+                            <ProductCard
+                                key={product.id}
+                                product={product}
+                                isPremium={isPremium}
+                                isCourse={isCourse}
+                            />
+                        ))
+                    ) : (
+                        <div className="text-center py-12 text-gray-500">
+                            Belum ada produk di kategori ini.
+                        </div>
+                    )}
+                </div>
             </div>
         </section>
     );
@@ -333,8 +239,9 @@ function ProductsSection({ activeCategory }: { activeCategory: string }) {
 /**
  * Products Page Component
  */
-export default function Products() {
-    const [activeCategory, setActiveCategory] = useState('ebook-gratis');
+export default function Products({ categories = [], products = {} }: ProductsProps) {
+    // Initial state set to the first category's ID if available
+    const [activeCategory, setActiveCategory] = useState(categories[0]?.id || 'ebook-gratis');
 
     return (
         <LandingLayout>
@@ -342,8 +249,12 @@ export default function Products() {
 
             <Navbar activePath="/products" />
             <HeroSection />
-            <CategoryNav activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
-            <ProductsSection activeCategory={activeCategory} />
+            <CategoryNav
+                activeCategory={activeCategory}
+                setActiveCategory={setActiveCategory}
+                categories={categories}
+            />
+            <ProductsSection activeCategory={activeCategory} products={products} />
             <Footer />
         </LandingLayout>
     );
