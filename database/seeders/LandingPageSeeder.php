@@ -220,6 +220,26 @@ class LandingPageSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=400',
                 'read_time' => 5,
                 'published_at' => '2022-03-27',
+                'content' => '<p><strong>"Duh dari kemarin kok, aku hanya ingin tidur terus-menerus, ya?"</strong></p>
+                <p>Apakah kamu pernah merasakan hal tersebut? Lalu tiba-tiba kamu langsung membuka Google dan mengetik "tanda-tanda depresi" atau semacamnya? Kemudian kamu menemukan bahwa salah satu tanda depresi adalah kelelahan dan ingin tidur terus-menerus. Lalu kamu langsung menyimpulkan bahwa kamu mengalami depresi.</p>
+                <h2>Apa Itu Self Diagnosis?</h2>
+                <p><strong>Self diagnosis</strong> adalah perilaku mendiagnosis diri sendiri dengan kondisi medis atau psikologis tertentu tanpa konsultasi dengan profesional yang berkualifikasi. Fenomena ini semakin marak seiring dengan mudahnya akses informasi di internet.</p>
+                <h2>Mengapa Self Diagnosis Berbahaya?</h2>
+                <p>Ada beberapa alasan mengapa self diagnosis bisa menjadi "jembatan petaka" untuk diri sendiri:</p>
+                <h3>1. Informasi yang Tidak Lengkap</h3>
+                <p>Internet memang menyediakan banyak informasi, tetapi tidak semua informasi tersebut akurat atau lengkap. Gejala yang kamu rasakan mungkin memiliki berbagai penyebab yang berbeda, dan hanya profesional yang terlatih yang bisa membedakannya.</p>
+                <h3>2. Risiko Salah Diagnosis</h3>
+                <p>Ketika kita mendiagnosis diri sendiri, kita cenderung fokus pada gejala tertentu dan mengabaikan konteks yang lebih luas. Ini bisa menyebabkan kita salah mengidentifikasi masalah yang sebenarnya.</p>
+                <h3>3. Penanganan yang Tidak Tepat</h3>
+                <p>Jika diagnosis kita salah, maka penanganan yang kita lakukan juga akan salah. Ini bisa memperburuk kondisi kita atau menciptakan masalah baru.</p>
+                <h2>Apa yang Sebaiknya Dilakukan?</h2>
+                <p>Jika kamu merasa ada yang tidak beres dengan kondisi mentalmu, langkah terbaik adalah:</p>
+                <ul>
+                    <li>Konsultasi dengan psikolog atau psikiater profesional</li>
+                    <li>Ceritakan semua yang kamu rasakan dengan jujur</li>
+                    <li>Ikuti saran dan penanganan yang diberikan</li>
+                </ul>
+                <p>Ingat, tidak ada yang salah dengan mencari bantuan profesional. Justru itu adalah langkah yang sangat berani dan bijak!</p>',
             ],
             [
                 'blog_category_id' => $mentalHealth->id,
@@ -228,6 +248,32 @@ class LandingPageSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=400',
                 'read_time' => 7,
                 'published_at' => '2022-02-27',
+                'content' => '<p><strong>Toxic positivity</strong>, tentu kamu sering mendengar kata-kata tersebut, baik melalui media sosial atau percakapan sehari-hari. Tapi sebenarnya apa sih toxic positivity itu?</p>
+                <h2>Definisi Toxic Positivity</h2>
+                <p>Toxic positivity adalah sikap yang menuntut seseorang untuk selalu berpikir positif, bahkan dalam situasi yang menyakitkan atau sulit. Ini adalah bentuk ekstrem dari positivitas yang menolak mengakui emosi negatif yang valid.</p>
+                <h2>Contoh Toxic Positivity</h2>
+                <p>Berikut beberapa contoh kalimat yang termasuk toxic positivity:</p>
+                <ul>
+                    <li>"Jangan sedih, masih banyak orang yang lebih susah dari kamu"</li>
+                    <li>"Semua akan baik-baik saja, kamu hanya perlu berpikir positif"</li>
+                    <li>"Tersenyumlah! Hidup terlalu singkat untuk bersedih"</li>
+                    <li>"Kamu seharusnya bersyukur, bukan mengeluh"</li>
+                </ul>
+                <h2>Dampak Toxic Positivity</h2>
+                <h3>1. Menekan Emosi</h3>
+                <p>Ketika kita dipaksa untuk selalu positif, kita cenderung menekan emosi negatif. Padahal, emosi negatif adalah bagian normal dari pengalaman manusia dan perlu dirasakan serta diproses.</p>
+                <h3>2. Merasa Bersalah</h3>
+                <p>Toxic positivity bisa membuat seseorang merasa bersalah atau malu karena merasakan emosi negatif. Ini justru memperburuk kondisi mental.</p>
+                <h3>3. Menghambat Proses Healing</h3>
+                <p>Untuk sembuh dari pengalaman traumatis atau menyakitkan, kita perlu mengakui dan memproses emosi kita. Toxic positivity menghambat proses ini.</p>
+                <h2>Alternatif yang Lebih Sehat</h2>
+                <p>Daripada toxic positivity, cobalah praktikkan <strong>validasi emosi</strong>:</p>
+                <ul>
+                    <li>"Wajar jika kamu merasa sedih dalam situasi ini"</li>
+                    <li>"Perasaanmu valid, dan aku di sini untukmu"</li>
+                    <li>"Tidak apa-apa untuk tidak baik-baik saja"</li>
+                </ul>
+                <p>Ingat, menerima emosi negatif bukan berarti kita menyerah pada keadaan. Ini adalah langkah pertama menuju pemulihan yang sebenarnya.</p>',
             ],
             [
                 'blog_category_id' => $productivity->id,
@@ -236,6 +282,27 @@ class LandingPageSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1606011334315-025e4baab810?w=400',
                 'read_time' => 6,
                 'published_at' => '2022-02-26',
+                'content' => '<p>Apakah kamu sering merasa kelelahan yang luar biasa meskipun sudah istirahat? Atau merasa tidak bermotivasi dan kehilangan passion terhadap pekerjaanmu? Hati-hati, bisa jadi kamu mengalami <strong>burnout</strong>!</p>
+                <h2>Apa Itu Burnout?</h2>
+                <p>Burnout adalah kondisi kelelahan emosional, fisik, dan mental yang disebabkan oleh stres berlebihan dan berkepanjangan. Kondisi ini terjadi ketika kamu merasa overwhelmed, terkuras secara emosional, dan tidak mampu memenuhi tuntutan yang terus-menerus.</p>
+                <h2>Tanda-Tanda Burnout</h2>
+                <h3>1. Kelelahan Kronis</h3>
+                <p>Merasa capek sepanjang waktu, baik secara fisik maupun emosional. Tidur tidak lagi terasa cukup untuk memulihkan energi.</p>
+                <h3>2. Sinisme dan Detachment</h3>
+                <p>Merasa negatif atau sinis terhadap pekerjaan. Kehilangan antusiasme yang dulu kamu miliki.</p>
+                <h3>3. Penurunan Produktivitas</h3>
+                <p>Sulit berkonsentrasi, sering membuat kesalahan, dan merasa tidak kompeten meskipun sebenarnya mampu.</p>
+                <h3>4. Masalah Fisik</h3>
+                <p>Sakit kepala, gangguan tidur, perubahan nafsu makan, atau penyakit yang sering kambuh.</p>
+                <h2>Cara Mengatasi Burnout</h2>
+                <ul>
+                    <li><strong>Tetapkan batasan:</strong> Belajar untuk mengatakan "tidak" dan menetapkan batas yang jelas antara pekerjaan dan kehidupan pribadi</li>
+                    <li><strong>Istirahat yang berkualitas:</strong> Tidur cukup, ambil cuti jika memungkinkan, dan luangkan waktu untuk hobi</li>
+                    <li><strong>Olahraga teratur:</strong> Aktivitas fisik dapat membantu mengurangi stres dan meningkatkan mood</li>
+                    <li><strong>Cari dukungan:</strong> Berbicara dengan teman, keluarga, atau profesional tentang apa yang kamu rasakan</li>
+                    <li><strong>Evaluasi prioritas:</strong> Pikirkan kembali apa yang benar-benar penting bagimu</li>
+                </ul>
+                <p>Jika kamu merasakan tanda-tanda burnout, jangan abaikan. Ini adalah sinyal dari tubuh dan pikiranmu bahwa ada sesuatu yang perlu diubah. Ingat, kesehatan mentalmu sama pentingnya dengan kesehatan fisik!</p>',
             ],
             [
                 'blog_category_id' => $selfDev->id,
@@ -244,6 +311,30 @@ class LandingPageSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=400',
                 'read_time' => 8,
                 'published_at' => '2022-02-23',
+                'content' => '<p>Pernahkah kamu merasa tidak cukup baik? Membandingkan diri dengan orang lain di media sosial dan merasa minder? Atau merasa cemas tentang bagaimana orang lain memandangmu? Jika iya, kamu mungkin sedang mengalami <strong>insecurity</strong>.</p>
+                <h2>Apa Itu Insecure?</h2>
+                <p>Insecure atau rasa tidak aman adalah perasaan ketidakpastian atau kecemasan tentang diri sendiri. Ini bisa meliputi keraguan tentang penampilan, kemampuan, atau nilai diri secara keseluruhan.</p>
+                <h2>Penyebab Insecure</h2>
+                <h3>1. Pengalaman Masa Kecil</h3>
+                <p>Kritik yang berlebihan, bullying, atau kurangnya dukungan emosional saat kecil bisa membentuk rasa insecure yang terbawa hingga dewasa.</p>
+                <h3>2. Media Sosial</h3>
+                <p>Paparan konstan terhadap kehidupan "sempurna" orang lain di media sosial bisa menciptakan standar tidak realistis dan perasaan tidak cukup.</p>
+                <h3>3. Kegagalan atau Penolakan</h3>
+                <p>Pengalaman gagal atau ditolak, terutama dalam hal yang penting bagi kita, bisa memicu rasa insecure.</p>
+                <h3>4. Perfectionism</h3>
+                <p>Menetapkan standar yang terlalu tinggi untuk diri sendiri dan merasa gagal ketika tidak mencapainya.</p>
+                <h2>Cara Mengatasi Insecure</h2>
+                <h3>1. Sadari dan Terima</h3>
+                <p>Langkah pertama adalah menyadari bahwa kamu merasa insecure. Tidak perlu malu, karena semua orang pasti pernah merasakannya.</p>
+                <h3>2. Tantang Pikiran Negatif</h3>
+                <p>Ketika muncul pikiran negatif tentang dirimu, tantang pikiran tersebut. Apakah benar? Apa buktinya? Apakah kamu akan berkata seperti itu kepada temanmu?</p>
+                <h3>3. Kurangi Membandingkan Diri</h3>
+                <p>Setiap orang memiliki perjalanan yang berbeda. Fokuslah pada kemajuanmu sendiri daripada membandingkan dengan orang lain.</p>
+                <h3>4. Praktikkan Self-Compassion</h3>
+                <p>Perlakukan dirimu dengan kebaikan dan pengertian, seperti kamu memperlakukan teman baik.</p>
+                <h3>5. Rayakan Kemenanganmu</h3>
+                <p>Sekecil apapun pencapaianmu, rayakan! Ini membantu membangun kepercayaan diri secara bertahap.</p>
+                <p>Ingat, kamu tidak sendirian dalam perasaan ini. Dan dengan langkah-langkah kecil yang konsisten, kamu bisa membangun rasa percaya diri yang lebih kuat.</p>',
             ],
             [
                 'blog_category_id' => $mentalHealth->id,
@@ -252,6 +343,24 @@ class LandingPageSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=400',
                 'read_time' => 5,
                 'published_at' => '2022-01-21',
+                'content' => '<p>Pandemi telah mengubah banyak aspek kehidupan kita. Isolasi, ketidakpastian, dan perubahan rutinitas dapat berdampak signifikan pada kesehatan mental. Berikut beberapa tips untuk tetap sehat mental di masa-masa sulit ini.</p>
+                <h2>1. Jaga Rutinitas Harian</h2>
+                <p>Meskipun bekerja dari rumah, cobalah untuk mempertahankan rutinitas harian. Bangun pada waktu yang sama, berpakaian rapi (meskipun tidak keluar rumah), dan tetapkan jam kerja yang jelas.</p>
+                <h2>2. Batasi Konsumsi Berita</h2>
+                <p>Terlalu banyak membaca berita tentang pandemi bisa meningkatkan kecemasan. Batasi waktu untuk mengikuti berita dan pilih sumber yang terpercaya.</p>
+                <h2>3. Tetap Terhubung</h2>
+                <p>Meskipun physical distancing, kita tetap bisa melakukan social connecting. Gunakan video call untuk berkomunikasi dengan keluarga dan teman.</p>
+                <h2>4. Olahraga Teratur</h2>
+                <p>Aktivitas fisik terbukti dapat mengurangi stres dan meningkatkan mood. Lakukan olahraga ringan di rumah atau berjalan-jalan di sekitar rumah dengan protokol kesehatan.</p>
+                <h2>5. Praktikkan Mindfulness</h2>
+                <p>Meditasi dan latihan pernapasan dapat membantu menenangkan pikiran dan mengurangi kecemasan. Cukup 10-15 menit sehari sudah bisa memberikan manfaat.</p>
+                <h2>6. Jaga Pola Tidur</h2>
+                <p>Tidur yang cukup dan berkualitas sangat penting untuk kesehatan mental. Hindari layar gadget satu jam sebelum tidur.</p>
+                <h2>7. Beri Waktu untuk Hobi</h2>
+                <p>Luangkan waktu untuk melakukan aktivitas yang kamu nikmati. Ini bisa menjadi pelarian yang sehat dari stres.</p>
+                <h2>8. Jangan Ragu Mencari Bantuan</h2>
+                <p>Jika kamu merasa overwhelmed, tidak apa-apa untuk mencari bantuan profesional. Banyak psikolog yang menyediakan layanan konseling online.</p>
+                <p>Ingat, menjaga kesehatan mental sama pentingnya dengan menjaga kesehatan fisik. Kita semua dalam situasi ini bersama-sama, dan kita akan melewatinya bersama!</p>',
             ],
             [
                 'blog_category_id' => $mentalHealth->id,
@@ -260,6 +369,36 @@ class LandingPageSeeder extends Seeder
                 'image' => 'https://images.unsplash.com/photo-1474418397713-7ede21d49118?w=400',
                 'read_time' => 6,
                 'published_at' => '2022-01-15',
+                'content' => '<p><strong>Overthinking</strong>, tentu sebagian besar dari kita sering mendengar kata tersebut. Baik dalam percakapan sehari-hari, di sosial media, di kampus, di kantor, dan di berbagai ruang-ruang diskusi. Dalam benak kita terkadang bertanya-tanya, apa itu overthinking? Apa saja ciri-cirinya? Apakah normal mengalami overthinking ini? Lalu, bagaimana cara mengatasinya?</p>
+                <h2>Apa Itu Overthinking?</h2>
+                <p>Overthinking adalah suatu perilaku dimana seseorang berpikir secara berlebihan mengenai suatu hal. Kamu terus-menerus menganalisis, mengkhawatirkan, dan memainkan skenario-skenario di pikiranmu tanpa henti.</p>
+                <h2>Tanda-Tanda Overthinking</h2>
+                <h3>1. Insomnia</h3>
+                <p>Kamu sering kesulitan tidur karena pikiranmu terus aktif dan tidak bisa rileks.</p>
+                <h3>2. Meragukan Diri Sendiri</h3>
+                <p>Kamu selalu meragukan keputusan yang sudah kamu ambil dan terus bertanya "bagaimana kalau..."</p>
+                <h3>3. Sulit Membuat Keputusan</h3>
+                <p>Karena terlalu banyak menganalisis, kamu jadi sulit menentukan pilihan bahkan untuk hal-hal kecil.</p>
+                <h3>4. Fokus pada Hal yang Tidak Bisa Dikontrol</h3>
+                <p>Kamu menghabiskan waktu memikirkan hal-hal yang sebenarnya di luar kendalimu.</p>
+                <h2>Dampak Overthinking</h2>
+                <ul>
+                    <li><strong>Stres:</strong> Pikiran yang terus-menerus berputar meningkatkan hormon stres</li>
+                    <li><strong>Kecemasan:</strong> Overthinking yang tidak terkendali bisa memicu gangguan kecemasan</li>
+                    <li><strong>Kelelahan mental:</strong> Energimu terkuras untuk berpikir yang tidak produktif</li>
+                </ul>
+                <h2>Cara Mengatasi Overthinking</h2>
+                <h3>1. Sadari Ketika Kamu Overthinking</h3>
+                <p>Langkah pertama adalah menyadari bahwa kamu sedang overthinking. Amati pikiranmu tanpa menghakimi.</p>
+                <h3>2. Tantang Pikiranmu</h3>
+                <p>Tanyakan pada dirimu: Apakah pikiran ini produktif? Apakah saya bisa melakukan sesuatu tentang ini sekarang?</p>
+                <h3>3. Tetapkan Batas Waktu untuk Berpikir</h3>
+                <p>Berikan dirimu waktu tertentu (misalnya 15 menit) untuk memikirkan suatu masalah, kemudian berhenti dan lakukan aktivitas lain.</p>
+                <h3>4. Praktikkan Mindfulness</h3>
+                <p>Fokus pada saat ini, bukan masa lalu atau masa depan. Latihan pernapasan bisa sangat membantu.</p>
+                <h3>5. Sibukkan Diri</h3>
+                <p>Lakukan aktivitas yang menyenangkan atau bermanfaat untuk mengalihkan pikiran dari loop overthinking.</p>
+                <p>Ingat, berpikir adalah hal yang baik, tapi berpikir berlebihan justru kontraproduktif. Jika overthinking sudah sangat mengganggu kehidupanmu, jangan ragu untuk berkonsultasi dengan profesional.</p>',
             ],
         ];
 

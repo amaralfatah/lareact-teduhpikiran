@@ -173,3 +173,79 @@
         @apply bg-background text-foreground;
     }
 }
+
+/* Article Content Styles */
+.article-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #374151;
+}
+
+.article-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.article-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.article-content p {
+    color: #374151;
+    margin-bottom: 1rem;
+    line-height: 1.75;
+}
+
+.article-content ul,
+.article-content ol {
+    color: #374151;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.article-content ul {
+    list-style-type: disc;
+}
+
+.article-content ol {
+    list-style-type: decimal;
+}
+
+.article-content li {
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.article-content strong {
+    color: #111827;
+    font-weight: 600;
+}
+
+.article-content a {
+    color: #098EC8;
+    font-weight: 500;
+}
+
+.article-content a:hover {
+    text-decoration: underline;
+}
+
+.article-content img {
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #098EC8;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #4b5563;
+    font-style: italic;
+}

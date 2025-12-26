@@ -197,7 +197,10 @@ function ArticlesSection({ articles }: { articles: BlogPost[] }) {
  */
 function ArticleCard({ article }: { article: BlogPost }) {
     return (
-        <article className="group overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md">
+        <Link
+            href={`/blog/${article.id}`}
+            className="group overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-md block"
+        >
             {/* Image */}
             <div className="relative h-48 overflow-hidden">
                 <img
@@ -213,7 +216,7 @@ function ArticleCard({ article }: { article: BlogPost }) {
             {/* Content */}
             <div className="p-5">
                 <h3 className="mb-2 font-semibold text-gray-900 line-clamp-2 group-hover:text-brand">
-                    <a href="#">{article.title}</a>
+                    {article.title}
                 </h3>
                 <p className="mb-4 text-sm text-gray-600 line-clamp-2">{article.excerpt}</p>
 
@@ -235,7 +238,7 @@ function ArticleCard({ article }: { article: BlogPost }) {
                     </span>
                 </div>
             </div>
-        </article>
+        </Link>
     );
 }
 

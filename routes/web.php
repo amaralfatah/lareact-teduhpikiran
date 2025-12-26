@@ -10,6 +10,7 @@ Route::get('/products', [LandingController::class, 'products'])->name('products'
 Route::get('/services', [LandingController::class, 'services'])->name('services');
 Route::get('/events', [LandingController::class, 'events'])->name('events');
 Route::get('/blog', [LandingController::class, 'blog'])->name('blog');
+Route::get('/blog/{article}', [LandingController::class, 'blogShow'])->name('blog.show');
 Route::get('/about', [LandingController::class, 'about'])->name('about');
 
 Route::middleware(['auth', 'verified'])->group(function () {

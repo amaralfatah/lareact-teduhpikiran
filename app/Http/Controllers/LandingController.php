@@ -190,4 +190,48 @@ class LandingController extends Controller
             'teamMembers' => $teamMembers,
         ]);
     }
+
+    /**
+     * Display a single blog article.
+     */
+    public function blogShow(BlogArticle $article): Response
+    {
+        // Ensure article is published
+        if (!$article->is_published) {
+            abort(404);
+        }
+
+        // Get related articles from same category
+        $relatedArticles = BlogArticle::with('category')
+            ->where('id', '!=', $article->id)
+            ->where('blog_category_id', $article->blog_category_id)
+            ->published()
+            ->latest()
+            ->take(3)
+            ->get()
+            ->map(fn($related) => [
+                'id' => $related->id,
+                'title' => $related->title,
+                'excerpt' => $related->excerpt,
+                'category' => $related->category->name,
+                'date' => $related->formatted_date,
+                'image' => $this->imageUrl($related->image),
+            ]);
+
+        return Inertia::render('landing/blog-show', [
+            'article' => [
+                'id' => $article->id,
+                'title' => $article->title,
+                'excerpt' => $article->excerpt,
+                'content' => $article->content,
+                'category' => $article->category->name,
+                'categorySlug' => $article->category->slug,
+                'date' => $article->formatted_date,
+                'readTime' => $article->read_time_text,
+                'image' => $this->imageUrl($article->image),
+                'author' => $article->author,
+            ],
+            'relatedArticles' => $relatedArticles,
+        ]);
+    }
 }
